@@ -1,7 +1,6 @@
 <?php
 require_once "header.php";
 require_once "nav.php";
-
     if  (isset($_GET["page"])) {
         if ($_GET["page"] == "about_us") {
             require_once "about_us.php";
@@ -13,7 +12,8 @@ require_once "nav.php";
             require_once "catalog.php";
         } else if ($_GET["page"] == "blog") {
             require_once "blog.php";
-        } else if ($_GET["page"] == "news") {
+        }
+        else if ($_GET["page"] == "news") {
             require_once "news.php";
         }
     } else {

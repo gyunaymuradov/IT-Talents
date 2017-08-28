@@ -2,7 +2,6 @@
     <?php
     $newsFile = file_get_contents("news.json");
     $newsArr = json_decode($newsFile, true);
-
     foreach ($newsArr as $currentNews) {
         $title = $currentNews["title"];
         $date = $currentNews["date"];

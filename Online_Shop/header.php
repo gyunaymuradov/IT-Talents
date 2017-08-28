@@ -12,5 +12,5 @@
 <div id="container">
     <header>
         <img id="header_img" class="float-left" src="assets/images/shop1.jpg" alt="store_image" title="store" width="200px" height="120px">
-        <h1 class="float-left" id="header">Online Shop</h1>
+        <div class="float-left"><h1 id="header">Online Market</h1></div>
     </header>
