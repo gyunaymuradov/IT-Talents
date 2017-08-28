@@ -7,11 +7,11 @@
 
     $counter = 1;
     $float = "";
-    foreach ($productsArr as $key => $value) {
+    foreach ($productsArr as $value) {
         if ($counter > 4) {
             break;
         }
-        $title = $key;
+        $title = $value["title"];
         $price = $value["price"];
         $counter++;
         if ($counter % 2 == 0) {
