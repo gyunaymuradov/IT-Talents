@@ -1,3 +1,6 @@
+<?php
+
+?>
 <main class="float-left border">
     <img class="float-left" id="product" src="assets/images/shop1.jpg" width="300" height="300">
     <div class="float-left">

@@ -1,23 +1,25 @@
 <?php
-    include "header.php";
-    include "nav.php";
+require_once "header.php";
+require_once "nav.php";
 
     if  (isset($_GET["page"])) {
         if ($_GET["page"] == "about_us") {
-            include "about_us.php";
+            require_once "about_us.php";
         } else if ($_GET["page"] == "contacts") {
-            include "contacts.php";
+            require_once "contacts.php";
         } else if ($_GET["page"] == "product") {
-            include "product.php";
+            require_once "product.php";
         } else if ($_GET["page"] == "catalog") {
-            include "catalog.php";
+            require_once "catalog.php";
         } else if ($_GET["page"] == "blog") {
-            include "blog.php";
+            require_once "blog.php";
+        } else if ($_GET["page"] == "news") {
+            require_once "news.php";
         }
     } else {
-        include "home.php";
+        require_once "home.php";
     }
 
-    include "footer.php";
+require_once "footer.php";
 ?>
 

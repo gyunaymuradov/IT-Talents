@@ -45,7 +45,7 @@ ul li {
     padding-left: 25px;
 }
 
-fieldset {
+#nav_fieldset {
     margin-left: 8px;
     width: 250px;
     height: 350px;
@@ -193,6 +193,7 @@ div .product-description p {
     width: 95%;
     margin: 20px 20px 20px 20px;
     display: inline-block;
+    box-sizing: border-box;
 }
 
 #search {
@@ -239,4 +240,42 @@ p.clear {
 
 .news {
     margin-top: 15px;
+}
+
+.news-image{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+fieldset.sub-container {
+    padding: 20px 20px 0 20px;
+    box-sizing: border-box;
+
+}
+.comment-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+fieldset {
+    height: 220px;
+}
+
+.overflow {
+    overflow-y: auto;
+    max-height: 165px;
+}
+
+input#commentator_name {
+    width: 500px;
+    border: solid black 1px;
+}
+
+textarea#comment {
+    width: 500px;
+    height: 80px;
+}
+
+div.clear input {
+    width: 100px;
 }
