@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d87b4fc-4b15-4cbf-a099-03ec2120761f" name="Default" comment="" />
+    <list default="true" id="8d87b4fc-4b15-4cbf-a099-03ec2120761f" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/catalog.php" afterPath="$PROJECT_DIR$/catalog.php" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,18 +27,18 @@
       <file leaf-file-name="catalog.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/catalog.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+            <state relative-caret-position="246">
+              <caret line="64" column="9" lean-forward="true" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
               <folding>
-                <element signature="e#4510#4517#1#HTML" expanded="true" />
-                <element signature="e#4698#4705#1#HTML" expanded="true" />
-                <marker date="1503905294000" expanded="true" signature="1803:2255" ph="..." />
-                <marker date="1503905294000" expanded="true" signature="1847:2241" ph="..." />
-                <marker date="1503905294000" expanded="true" signature="1893:2221" ph="..." />
-                <marker date="1503905294000" expanded="true" signature="2749:3201" ph="..." />
-                <marker date="1503905294000" expanded="true" signature="2793:3187" ph="..." />
-                <marker date="1503905294000" expanded="true" signature="2839:3167" ph="..." />
-                <marker date="1503905294000" expanded="true" signature="3258:4457" ph="..." />
+                <element signature="e#4783#4790#1#HTML" expanded="true" />
+                <element signature="e#4971#4978#1#HTML" expanded="true" />
+                <marker date="1503906553000" expanded="true" signature="1800:2252" ph="..." />
+                <marker date="1503906553000" expanded="true" signature="1844:2238" ph="..." />
+                <marker date="1503906553000" expanded="true" signature="1890:2218" ph="..." />
+                <marker date="1503906553000" expanded="true" signature="3008:3460" ph="..." />
+                <marker date="1503906553000" expanded="true" signature="3052:3446" ph="..." />
+                <marker date="1503906553000" expanded="true" signature="3098:3426" ph="..." />
+                <marker date="1503906553000" expanded="true" signature="3531:4730" ph="..." />
               </folding>
             </state>
           </provider>
@@ -302,12 +304,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1503816715597</updated>
-      <workItem from="1503816718697" duration="23869000" />
+      <workItem from="1503816718697" duration="24482000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23869000" />
+    <option name="totallyTimeSpent" value="24482000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -451,18 +453,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/catalog.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+        <state relative-caret-position="246">
+          <caret line="64" column="9" lean-forward="true" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
           <folding>
-            <element signature="e#4510#4517#1#HTML" expanded="true" />
-            <element signature="e#4698#4705#1#HTML" expanded="true" />
-            <marker date="1503905294000" expanded="true" signature="1803:2255" ph="..." />
-            <marker date="1503905294000" expanded="true" signature="1847:2241" ph="..." />
-            <marker date="1503905294000" expanded="true" signature="1893:2221" ph="..." />
-            <marker date="1503905294000" expanded="true" signature="2749:3201" ph="..." />
-            <marker date="1503905294000" expanded="true" signature="2793:3187" ph="..." />
-            <marker date="1503905294000" expanded="true" signature="2839:3167" ph="..." />
-            <marker date="1503905294000" expanded="true" signature="3258:4457" ph="..." />
+            <element signature="e#4783#4790#1#HTML" expanded="true" />
+            <element signature="e#4971#4978#1#HTML" expanded="true" />
+            <marker date="1503906553000" expanded="true" signature="1800:2252" ph="..." />
+            <marker date="1503906553000" expanded="true" signature="1844:2238" ph="..." />
+            <marker date="1503906553000" expanded="true" signature="1890:2218" ph="..." />
+            <marker date="1503906553000" expanded="true" signature="3008:3460" ph="..." />
+            <marker date="1503906553000" expanded="true" signature="3052:3446" ph="..." />
+            <marker date="1503906553000" expanded="true" signature="3098:3426" ph="..." />
+            <marker date="1503906553000" expanded="true" signature="3531:4730" ph="..." />
           </folding>
         </state>
       </provider>

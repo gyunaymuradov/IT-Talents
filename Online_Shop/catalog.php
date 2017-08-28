@@ -2,7 +2,7 @@
 $productsFile = "";
 $productsArr = "";
 $matchesArr = "";
-$foundMatches = false;
+$foundMatches = "";
 
 if (isset($_POST["search"]) && isset($_POST["submit_search"])) {
     $productName = $_POST["search"];
@@ -64,20 +64,24 @@ if (isset($_POST["search"]) && isset($_POST["submit_search"])) {
          </a>";
         }
     } else {
-        $productsFile = file_get_contents("products.json");
-        $productsArr = json_decode($productsFile, true);
+        $product = $_POST["search"];
+        if (isset($_POST["submit_search"])) {
+            echo "<div>No products with keyword '$product' were found. Please try with different keyword!</div>";
+        } else {
+            $productsFile = file_get_contents("products.json");
+            $productsArr = json_decode($productsFile, true);
 
-        $counter = 1;
-        foreach ($productsArr as $key => $value) {
-            if ($counter > 3) {
-                break;
-            }
-            $title = $key;
-            $price = $value["price"];
-            $description = substr($value["description"],0, 400) . "...";
-            $counter++;
+            $counter = 1;
+            foreach ($productsArr as $key => $value) {
+                if ($counter > 3) {
+                    break;
+                }
+                $title = $key;
+                $price = $value["price"];
+                $description = substr($value["description"],0, 400) . "...";
+                $counter++;
 
-            echo "<a  href=\"?page=product\">
+                echo "<a  href=\"?page=product\">
              <div class=\"catalog border\">
                 <div class=\"sub-container\">
                     <img class=\"float-left\" src=\"assets/images/square.png\" width=\"150\" height=\"170\">
@@ -87,6 +91,7 @@ if (isset($_POST["search"]) && isset($_POST["submit_search"])) {
                 </div>
              </div>
          </a>";
+            }
         }
     }
     ?>
