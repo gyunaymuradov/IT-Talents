@@ -15,6 +15,7 @@ html {
     overflow: hidden;
     border: solid navy;
     border-width: 2px;
+    padding-bottom: 30px!important;
 }
 
 .float-left {

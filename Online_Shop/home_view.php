@@ -20,15 +20,21 @@
                 <article class=\"article $float\">
                     <div>
                         <img class=\"image\" src=\"assets/images/square.png\" width=\"280\" height=\"250\">
-                        <p  class=\"title-price\">$title</p>
-                        <p  class=\"title-price\">$$price</p>
+                        <p class=\"title-price\">$title</p>
+                        <p class=\"title-price\">$$price</p>
                     </div>
                 </article>
               </a>";
     }
+    echo "<h3 class=\"clear\">Latest News</h3>";
+    $counter = 1;
+    foreach ($newsArr as $news) {
+        if ($counter == 4) {
+            break;
+        }
+        $new = substr($news["description"], 0, 281) . "...";
+        echo "<p class=\"clear\">$new<a class=\"link\" href=\"?page=news\">Read More</a></p>";
+        $counter++;
+    }
     ?>
-    <h3 class="clear">Latest News</h3>
-    <p class="clear">Lorem Ipsum е елементарен примерен текст, използван в печатарската и типографската индустрия. Lorem Ipsum е индустриален стандарт от около 1500 година, когато неизвестен печатар...<a class="link" href="?page=news">Read More</a></p>
-    <p class="clear">Lorem Ipsum е елементарен примерен текст, използван в печатарската и типографската индустрия. Lorem Ipsum е индустриален стандарт от около 1500 година, когато неизвестен печатар...<a class="link" href="news.php">Read More</a></p>
-    <p class="clear">Lorem Ipsum е елементарен примерен текст, използван в печатарската и типографската индустрия. Lorem Ipsum е индустриален стандарт от около 1500 година, когато неизвестен печатар...<a class="link" href="news.php">Read More</a></p>
 </main>
