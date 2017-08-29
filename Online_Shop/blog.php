@@ -8,7 +8,7 @@
         $author = $currentNews["author"];
         $description = substr($currentNews["description"], 0, 351) . "...";
 
-        echo "<a  href=\"?page=news\">
+        echo "<a  href=\"?page=news\&id=" . $currentNews['id'] . "\">
                 <div class=\"catalog border\">
                     <div class=\"sub-container\">
                         <h2>$title</h2>
