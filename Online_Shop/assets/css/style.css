@@ -275,3 +275,7 @@ textarea#comment {
 div.clear input {
     width: 100px;
 }
+
+.center {
+    text-align: center!important;
+}

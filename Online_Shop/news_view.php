@@ -6,15 +6,23 @@
             <img class="news-image" src="assets/images/169.jpg" width="100%" height="150">
             <p class="news"><?= $newDescription; ?></p>
         </div>
-        <fieldset class="sub-container">
+
+        <?php
+            if (!$hasComments) {
+                echo "<div class='center'><small>This article does not have any comments yet! You can drop a comment below</small></div>";
+            } else {
+                echo "<fieldset class=\"sub-container\">
             <legend>Comments</legend>
-            <div class="overflow">
+            <div class=\"overflow\">
                 <p><cite>Someone said on 12.21.2121:</cite></p>
-                <div class="comment-container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore fugit maxime nulla placeat voluptate. Consequuntur debitis deleniti enim eum iste maxime mollitia obcaecati odit perspiciatis praesentium quisquam, repellat sit voluptate.</div>
-                <div class="comment-container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore fugit maxime nulla placeat voluptate. Consequuntur debitis deleniti enim eum iste maxime mollitia obcaecati odit perspiciatis praesentium quisquam, repellat sit voluptate.</div>
-                <div class="comment-container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore fugit maxime nulla placeat voluptate. Consequuntur debitis deleniti enim eum iste maxime mollitia obcaecati odit perspiciatis praesentium quisquam, repellat sit voluptate.</div>
+                <div class=\"comment-container\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore fugit maxime nulla placeat voluptate. Consequuntur debitis deleniti enim eum iste maxime mollitia obcaecati odit perspiciatis praesentium quisquam, repellat sit voluptate.</div>
+                <div class=\"comment-container\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore fugit maxime nulla placeat voluptate. Consequuntur debitis deleniti enim eum iste maxime mollitia obcaecati odit perspiciatis praesentium quisquam, repellat sit voluptate.</div>
+                <div class=\"comment-container\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore fugit maxime nulla placeat voluptate. Consequuntur debitis deleniti enim eum iste maxime mollitia obcaecati odit perspiciatis praesentium quisquam, repellat sit voluptate.</div>
             </div>
-        </fieldset>
+        </fieldset>";
+            }
+        ?>
+
         <fieldset class="sub-container">
             <legend>Comment Yourself</legend>
             <div>
