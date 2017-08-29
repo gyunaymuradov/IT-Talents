@@ -16,7 +16,7 @@
         } else {
             $float = "float-left";
         }
-        echo "<a href=\"?page=product&$productId\">
+        echo "<a href=\"?page=product&id=$productId\">
                 <article class=\"article $float\">
                     <div>
                         <img class=\"image\" src=\"assets/images/square.png\" width=\"280\" height=\"250\">
