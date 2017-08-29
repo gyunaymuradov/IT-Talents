@@ -32,8 +32,9 @@
         if ($counter == 4) {
             break;
         }
+        $newsId = $news["id"];
         $new = substr($news["description"], 0, 281) . "...";
-        echo "<p class=\"clear\">$new<a class=\"link\" href=\"?page=news\">Read More</a></p>";
+        echo "<p class=\"clear\">$new<a class=\"link\" href=\"?page=news&id=$newsId\">Read More</a></p>";
         $counter++;
     }
     ?>
