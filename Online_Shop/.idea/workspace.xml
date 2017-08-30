@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d87b4fc-4b15-4cbf-a099-03ec2120761f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/style.css" afterPath="$PROJECT_DIR$/assets/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news_view.php" afterPath="$PROJECT_DIR$/news_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/catalog_view.php" afterPath="$PROJECT_DIR$/catalog_view.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,18 +34,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="catalog_view.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="catalog_view.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/catalog_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="662">
-              <caret line="49" column="13" lean-forward="false" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+            <state relative-caret-position="161">
+              <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
               <folding>
-                <marker date="1504093129000" expanded="true" signature="1318:1770" ph="..." />
-                <marker date="1504093129000" expanded="true" signature="1362:1756" ph="..." />
-                <marker date="1504093129000" expanded="true" signature="1408:1736" ph="..." />
-                <marker date="1504093129000" expanded="true" signature="2593:3045" ph="..." />
-                <marker date="1504093129000" expanded="true" signature="2637:3031" ph="..." />
-                <marker date="1504093129000" expanded="true" signature="2683:3011" ph="..." />
+                <marker date="1504093993000" expanded="true" signature="1357:1809" ph="..." />
+                <marker date="1504093993000" expanded="true" signature="1401:1795" ph="..." />
+                <marker date="1504093993000" expanded="true" signature="1447:1775" ph="..." />
+                <marker date="1504093993000" expanded="true" signature="2676:3128" ph="..." />
+                <marker date="1504093993000" expanded="true" signature="2720:3114" ph="..." />
+                <marker date="1504093993000" expanded="true" signature="2766:3094" ph="..." />
               </folding>
             </state>
           </provider>
@@ -120,10 +118,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="916">
+            <state relative-caret-position="3380">
               <caret line="294" column="16" lean-forward="false" selection-start-line="294" selection-start-column="16" selection-end-line="294" selection-end-column="16" />
               <folding />
             </state>
@@ -190,10 +188,10 @@
         <option value="$PROJECT_DIR$/addcomment.php" />
         <option value="$PROJECT_DIR$/news.php" />
         <option value="$PROJECT_DIR$/comments.json" />
-        <option value="$PROJECT_DIR$/catalog_view.php" />
         <option value="$PROJECT_DIR$/catalog.php" />
         <option value="$PROJECT_DIR$/news_view.php" />
         <option value="$PROJECT_DIR$/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/catalog_view.php" />
       </list>
     </option>
   </component>
@@ -393,12 +391,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1503816715597</updated>
-      <workItem from="1503816718697" duration="60821000" />
+      <workItem from="1503816718697" duration="61025000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60821000" />
+    <option name="totallyTimeSpent" value="61025000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -613,21 +611,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/catalog_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="662">
-          <caret line="49" column="13" lean-forward="false" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
-          <folding>
-            <marker date="1504093129000" expanded="true" signature="1318:1770" ph="..." />
-            <marker date="1504093129000" expanded="true" signature="1362:1756" ph="..." />
-            <marker date="1504093129000" expanded="true" signature="1408:1736" ph="..." />
-            <marker date="1504093129000" expanded="true" signature="2593:3045" ph="..." />
-            <marker date="1504093129000" expanded="true" signature="2637:3031" ph="..." />
-            <marker date="1504093129000" expanded="true" signature="2683:3011" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/catalog.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -679,9 +662,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="916">
+        <state relative-caret-position="3380">
           <caret line="294" column="16" lean-forward="false" selection-start-line="294" selection-start-column="16" selection-end-line="294" selection-end-column="16" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/catalog_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+          <folding>
+            <marker date="1504093993000" expanded="true" signature="1357:1809" ph="..." />
+            <marker date="1504093993000" expanded="true" signature="1401:1795" ph="..." />
+            <marker date="1504093993000" expanded="true" signature="1447:1775" ph="..." />
+            <marker date="1504093993000" expanded="true" signature="2676:3128" ph="..." />
+            <marker date="1504093993000" expanded="true" signature="2720:3114" ph="..." />
+            <marker date="1504093993000" expanded="true" signature="2766:3094" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

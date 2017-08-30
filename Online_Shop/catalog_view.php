@@ -23,12 +23,13 @@
             if ($counter > 3) {
                 break;
             }
+            $id = $value["id"];
             $title = $value["title"];
             $price = $value["price"];
             $description = substr($value["description"],0, 400) . "...";
             $counter++;
 
-            echo "<a  href=\"?page=product\">
+            echo "<a  href=\"?page=product&id=$id\">
              <div class=\"catalog border\">
                 <div class=\"sub-container\">
                     <img class=\"float-left\" src=\"assets/images/square.png\" width=\"150\" height=\"170\">
@@ -54,12 +55,14 @@
                 if ($counter > 3) {
                     break;
                 }
+
+                $id = $value["id"];
                 $title = $value["title"];
                 $price = $value["price"];
                 $description = substr($value["description"],0, 400) . "...";
                 $counter++;
 
-                echo "<a  href=\"?page=product\">
+                echo "<a  href=\"?page=product&id=$id\">
              <div class=\"catalog border\">
                 <div class=\"sub-container\">
                     <img class=\"float-left\" src=\"assets/images/square.png\" width=\"150\" height=\"170\">
