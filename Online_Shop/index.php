@@ -12,7 +12,7 @@ require_once "nav.php";
             require_once "catalog.php";
         } else if ($_GET["page"] == "blog") {
             require_once "blog.php";
-        } else if ($_GET["page"] == "news") {
+        }else if ($_GET["page"] == "news") {
             require_once "news.php";
         }
     } else {

@@ -12,23 +12,29 @@
                 echo "<div class='center'><small>This article does not have any comments yet! You can drop a comment below</small></div>";
             } else {
                 echo "<fieldset class=\"sub-container\">
-            <legend>Comments</legend>
-            <div class=\"overflow\">
-                <p><cite>Someone said on 12.21.2121:</cite></p>
-                <div class=\"comment-container\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore fugit maxime nulla placeat voluptate. Consequuntur debitis deleniti enim eum iste maxime mollitia obcaecati odit perspiciatis praesentium quisquam, repellat sit voluptate.</div>
-                <div class=\"comment-container\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore fugit maxime nulla placeat voluptate. Consequuntur debitis deleniti enim eum iste maxime mollitia obcaecati odit perspiciatis praesentium quisquam, repellat sit voluptate.</div>
-                <div class=\"comment-container\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore fugit maxime nulla placeat voluptate. Consequuntur debitis deleniti enim eum iste maxime mollitia obcaecati odit perspiciatis praesentium quisquam, repellat sit voluptate.</div>
-            </div>
-        </fieldset>";
+                    <legend>Comments</legend>
+                    <div class='overflow'>";
+                    foreach ($commentsArr[$newId] as $currentComment) {
+                        $comment = $currentComment["comment"];
+                        $author = $currentComment["author"];
+                        $date = $currentComment["date"];
+                        echo "<div>
+                                <p>$author<cite> said on $date:</cite></p>
+                                <div>$comment</div>
+                                <br>
+                              </div>";
+                }
+                echo "</fieldset>";
             }
         ?>
 
         <fieldset class="sub-container">
             <legend>Comment Yourself</legend>
             <div>
-                <form action="" method="post">
+                <form action="addcomment.php" method="post">
+                    <input type="hidden" name="current_id" value='<?= $newId; ?>'>
                     <label class="float-left" for="commentator_name">Name</label>
-                    <input class="float-right" type="text" id="commentator_name" required><br><br>
+                    <input class="float-right" type="text" name="commentator" id="commentator_name" required><br><br>
                     <label class="float-left" for="comment">Comment</label>
                     <textarea class="float-right" name="comment_content" id="comment"></textarea><br>
                     <div class="clear">

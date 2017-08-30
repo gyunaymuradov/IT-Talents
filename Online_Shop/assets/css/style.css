@@ -46,9 +46,10 @@ ul li {
 
 #nav_fieldset {
     margin-left: 20px;
-    margin-bottom: 30px;
+    padding-bottom: 18px;
     width: 180px;
     text-align: center;
+    height: auto;
 }
 
 legend {
@@ -244,13 +245,14 @@ p.clear {
 }
 
 fieldset.sub-container {
-    padding: 17px 17px 0 17px;
+    padding: 7px 17px 14px 17px;
     box-sizing: border-box;
 
 }
 .comment-container {
     margin-top: 10px;
     margin-bottom: 10px;
+    box-sizing: border-box;
 }
 
 fieldset {
@@ -258,8 +260,8 @@ fieldset {
 }
 
 .overflow {
-    overflow-y: auto;
-    max-height: 165px;
+    overflow: scroll;
+    max-height: 180px;
 }
 
 input#commentator_name {
@@ -278,4 +280,12 @@ div.clear input {
 
 .center {
     text-align: center!important;
+}
+
+p cite {
+    font-size: 0.8em;
+}
+
+div>p {
+    margin-bottom: 1.1px;
 }
