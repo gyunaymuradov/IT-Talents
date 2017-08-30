@@ -289,3 +289,8 @@ p cite {
 div>p {
     margin-bottom: 1.1px;
 }
+
+#back-button {
+    width: auto!important;
+    padding: 5px;
+}

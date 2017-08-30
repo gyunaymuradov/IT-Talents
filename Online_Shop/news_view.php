@@ -4,7 +4,8 @@
             <h2><?= $newTitle; ?></h2>
             <p class="news"><cite>Posted on: <?= $newDate; ?> by <?= $newAuthor; ?></cite></p>
             <img class="news-image" src="assets/images/169.jpg" width="100%" height="150">
-            <p class="news"><?= $newDescription; ?></p>
+            <p class="news"><?= $newDescription; ?></p><br>
+            <a href="?page=blog"><button id="back-button">Read all news</button></a>
         </div>
 
         <?php
