@@ -3,16 +3,16 @@
     <p>Lorem Ipsum е елементарен примерен текст, използван в печатарската и типографската индустрия. Lorem Ipsum е индустриален стандарт от около 1500 година, когато неизвестен печатар взема няколко печатарски букви и ги разбърква, за да напечата с тях книга с примерни шрифтове. Този начин не само е оцелял повече от 5 века, но е навлязъл и в публикуването на електронни издания като е запазен почти без промяна. Популяризиран е през 60те години на 20ти век със издаването на Letraset листи, съдържащи Lorem Ipsum пасажи, популярен е и в наши дни във софтуер за печатни издания като Aldus PageMaker, който включва различни версии на Lorem Ipsum.</p>
     <div id="contact" class="float-left">
         <h4>Contact Form</h4>
-        <form action="">
+        <form action="sci.php" method="post">
             <label for="name" class="float-left">Name</label>
-            <input type="text" id="name" class="input_form float-right"><br><br>
+            <input type="text" id="name" name="name" class="input_form float-right contact" placeholder="ex: Adam" required><br><br>
             <label for="email" class="float-left">Email</label>
-            <input type="email" id="email" class="input_form float-right"><br><br>
+            <input type="email" id="email" name="email" class="input_form float-right contact" placeholder="ex: steve_jobs@apple.com" required><br><br>
             <label for="phone" class="float-left">Phone</label>
-            <input type="number" id="phone" class="input_form float-right"><br><br>
-            Contact Us <br>
-            <textarea cols="30" rows="10"></textarea>
-            <button class="float-right">Send</button>
+            <input type="number" id="phone" name="number" class="input_form float-right contact" placeholder="ex: 0987654321" required><br><br>
+            <label for="message">Contact Us</label><br>
+            <textarea cols="30" id="message" rows="10" name="message"  class="contact" placeholder="your message..."  required></textarea>
+            <input type="submit" class="float-right" name="send" value="Send">
         </form>
     </div>
     <div id="iframe" class="float-right">

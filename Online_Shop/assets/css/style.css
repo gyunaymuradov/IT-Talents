@@ -212,7 +212,7 @@ div .product-description p {
     margin-left: 50px;
     margin-right: 20px;
     font-size: 1.3em;
-}
+}#sea
 
 p.clear {
     padding-top: 10px;
@@ -294,4 +294,14 @@ div>p {
 #back-button {
     width: auto!important;
     padding: 2.4px;
+}
+
+.contact {
+    box-sizing: border-box;
+    padding-left: 8px;
+}
+
+#message {
+    padding-top: 8px;
+    box-sizing: border-box;
 }
