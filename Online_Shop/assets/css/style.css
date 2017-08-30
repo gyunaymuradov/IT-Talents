@@ -198,6 +198,7 @@ div .product-description p {
     width: 200px;
     background: white;
     margin-right: 30px;
+    padding-left: 7px;
 }
 
 .border input   {
@@ -292,5 +293,5 @@ div>p {
 
 #back-button {
     width: auto!important;
-    padding: 5px;
+    padding: 2.4px;
 }

@@ -3,7 +3,8 @@
     <div class="float-left">
         <p class="product-info"><?= $productTitle; ?></p>
         <p class="product-info">$<?= $productPrice; ?></p>
-        <p class="product-info"><button id="buy">Buy Now</button></p>
+        <p class="product-info"><button id="buy">Buy Now</button>
+            <a href="?page=catalog"><button id="back-button">Back to all products</button></a></p>
     </div>
     <div class="product-description">
         <p><?= $productDescription; ?></p>
