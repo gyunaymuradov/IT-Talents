@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,6 +13,14 @@
 <body>
 <div id="container">
     <header>
+        <?php
+        if (!isset($_SESSION["logged"]) || $_SESSION["logged"] == false) {
+            echo "<div class='float-right'>You are not logged in. <a href='login.php'>(Log in)</a></div>";
+        } else {
+            $username = $_SESSION["username"];
+            echo "<div class='float-right'>Welcome back, $username <form action='login.php' method='post'><input type='submit' name='logout' value='Logout'></form></div>";
+        }
+        ?>
         <img id="header_img" class="float-left" src="assets/images/shop1.jpg" alt="store_image" title="store" width="200px" height="120px">
         <div class="float-left"><h1 id="header">Online Market</h1></div>
     </header>
