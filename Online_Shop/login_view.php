@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <br>
-                        <input type="submit" value="Log in" name="login" class="border">
+                        <input type="submit" value="Log in" name="login" class="reg-log">
                     </form>
                 </div>
                 <br>
@@ -66,7 +66,7 @@
                             <label for="confirm-pass" class="form-label">Confirm password</label>&nbsp;&nbsp;
                         </div>
                         <input type="password" name="confirm-pass" id="confirm-password"class="login border float-left" required><br><br>
-                        <input type="submit" name="register" value="Register" class="border">
+                        <input type="submit" name="register" value="Register" class="reg-log">
                     </form>
                 </div>
                 <br>

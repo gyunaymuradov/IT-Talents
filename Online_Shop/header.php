@@ -16,7 +16,11 @@
             echo "<div class='float-right'>You are not logged in. <a href='login.php'>(Log in)</a></div>";
         } else {
             $username = $_SESSION["username"];
-            echo "<div class='float-right'>Welcome back, $username <form action='login.php' method='post'><input type='submit' name='logout' value='Logout'></form></div>";
+            echo "<form action='login.php' method='post'>
+                    <div class='float-right'>Welcome back, $username &nbsp;
+                        <input class='float-right' id='logout-btn' type='submit' name='logout' value='Logout'>
+                    </div>
+                </form>";
         }
         ?>
         <img id="header_img" class="float-left" src="assets/images/shop1.jpg" alt="store_image" title="store" width="200px" height="120px">

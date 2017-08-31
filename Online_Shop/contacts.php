@@ -12,7 +12,7 @@
             <input type="number" id="phone" name="number" class="input_form float-right contact" placeholder="ex: 0987654321" required><br><br>
             <label for="message">Contact Us</label><br>
             <textarea cols="30" id="message" rows="10" name="message"  class="contact" placeholder="your message..."  required></textarea>
-            <input type="submit" class="float-right" name="send" value="Send">
+            <input type="submit" class="float-right" id="send" name="send" value="Send">
         </form>
     </div>
     <div id="iframe" class="float-right">

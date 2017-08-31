@@ -5,7 +5,7 @@
             <p class="news"><cite>Posted on: <?= $newDate; ?> by <?= $newAuthor; ?></cite></p>
             <img class="news-image" src="assets/images/169.jpg" width="100%" height="150">
             <p class="news"><?= $newDescription; ?></p><br>
-            <a href="?page=blog"><button id="back-button">Read all news</button></a>
+            <a href="?page=blog"><button id="readNews">Read all news</button></a>
         </div>
 
         <?php
@@ -38,8 +38,8 @@
                     <input class="float-right" type="text" name="commentator" id="commentator_name" required><br><br>
                     <label class="float-left" for="comment">Comment</label>
                     <textarea class="float-right" name="comment_content" id="comment"></textarea><br>
-                    <div class="clear">
-                        <input class="border" type="submit" name="comment" value="Comment">
+                    <div id="align-right">
+                        <input class="border" type="submit" name="comment" id="comment-btn" value="Comment">
                     </div>
                 </form>
             </div>
