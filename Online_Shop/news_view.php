@@ -35,9 +35,9 @@
                 <form action="addcomment.php" method="post">
                     <input type="hidden" name="current_id" value='<?= $newId; ?>'>
                     <label class="float-left" for="commentator_name">Name</label>
-                    <input class="float-right" type="text" name="commentator" id="commentator_name" required><br><br>
+                    <input class="float-right comment-input" type="text" name="commentator" id="commentator_name" required><br><br>
                     <label class="float-left" for="comment">Comment</label>
-                    <textarea class="float-right" name="comment_content" id="comment"></textarea><br>
+                    <textarea class="float-right comment-input" name="comment_content" id="comment"></textarea><br>
                     <div id="align-right">
                         <input class="border" type="submit" name="comment" id="comment-btn" value="Comment">
                     </div>

@@ -2,7 +2,7 @@
     <div class="catalog border">
         <div class="sub-container">
             <form action="" method="post" class="float-left">
-                <input id="search-input" class="border" name="search" type="text" placeholder="Search..." required>
+                <input id="search-input" name="search" type="text" placeholder="Search..." required>
                 <input class="search" type="submit" name="submit_search" value="Search">
             </form>
             <form action="" method="post" id="order" class="float-right">

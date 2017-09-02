@@ -50,6 +50,8 @@ ul li {
     width: 180px;
     text-align: center;
     height: auto;
+    border-radius: 15px;
+    border: solid navy 2px;
 }
 
 legend {
@@ -67,8 +69,8 @@ main>p {
 }
 
 .article {
-    border: solid black;
-    border-width: 2px;
+    border: solid navy 2px;
+    border-radius: 15px;
     width: 35%;
     padding: 22px 22px 0 22px;
     margin-bottom: 20px;
@@ -97,7 +99,8 @@ h3 {
 .input_form {
     width: 220px;
     margin-bottom: 10px;
-    border: solid black 1px;
+    border: solid navy 2px;
+    border-radius: 5px;
     height: 25px;
 }
 
@@ -188,6 +191,8 @@ div .product-description p {
 .catalog {
     width: 100%;
     margin-bottom: 30px;
+    border: solid navy 2px;
+    border-radius: 15px;
 }
 
 .sub-container {
@@ -203,12 +208,16 @@ div .product-description p {
     background: white;
     margin-right: 30px;
     padding-left: 7px;
+    border: solid navy 2px;
+    border-radius: 5px;
 }
 
 .border input   {
     background: white;
     width: 50px;
     height: 20px;
+    border: solid navy 2px;
+    border-radius: 5px;
 }
 
 .product-title {
@@ -252,6 +261,8 @@ p.clear {
 fieldset.sub-container {
     padding: 7px 17px 14px 17px;
     box-sizing: border-box;
+    border: solid navy 2px;
+    border-radius: 15px;
 
 }
 .comment-container {
@@ -307,6 +318,8 @@ div>p {
 .contact {
     box-sizing: border-box;
     padding-left: 8px;
+    border-radius: 6px;
+    border: solid navy 2px;
 }
 
 #message {
@@ -418,4 +431,14 @@ select.search {
     font-size: 0.8em;
     background-color: lightgray!important;
     margin-right: 4px;
+}
+
+.comment-input  {
+    border: solid navy 2px!important;
+    border-radius: 15px;
+}
+
+main.product {
+    border: solid navy 2px!important;
+    border-radius: 15px;
 }
