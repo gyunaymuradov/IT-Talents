@@ -23,6 +23,6 @@
                 </form>";
         }
         ?>
-        <img id="header_img" class="float-left" src="assets/images/shop1.jpg" alt="store_image" title="store" width="200px" height="120px">
+        <img id="header_img" class="float-left" src="assets/images/webmarket.png" alt="store_image" title="store" width="210" height="auto">
         <div class="float-left"><h1 id="header">Online Market</h1></div>
     </header>
