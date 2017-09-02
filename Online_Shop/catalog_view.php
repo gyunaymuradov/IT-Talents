@@ -7,9 +7,9 @@
             </form>
             <form action="" method="post" id="order" class="float-right">
                 <select name="order_by" id="" class="float-right search">
-                    <option value="ascending">Price ascending</option>
-                    <option value="descending">Price descending</option>
-                    <option value="name" selected >Name</option>
+                    <option value="name" <?php if ($orderSubmitted && $orderType == "name") echo 'selected="selected"'?>>Name</option>
+                    <option value="ascending" <?php if ($orderSubmitted && $orderType == "ascending") echo 'selected="selected"'?>>Price ascending</option>
+                    <option value="descending" <?php if ($orderSubmitted && $orderType == "descending") echo 'selected="selected"'?>>Price descending</option>
                 </select>
                 <input type="submit" name="order" value="Order by" class="float-right search">
             </form>
