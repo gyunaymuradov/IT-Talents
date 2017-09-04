@@ -9,6 +9,7 @@ foreach ($productsArr as $item) {
             $productTitle = $item["title"];
             $productPrice = $item["price"];
             $productDescription = $item["description"];
+            $productImg = $item["mainImg"];
         }
     }
 
