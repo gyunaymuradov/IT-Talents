@@ -1,5 +1,11 @@
 <?php
 session_start();
+$errorMessage = "";
+$logged = true;
+if ($_SESSION["logged"] == false || !isset($_SESSION["logged"])) {
+    $errorMessage = "You need to log in order to be able to add products.<br><br>Don't have an account? <a href='login.php'>Click</a> to register";
+    $logged = false;
+}
 
 if (isset($_POST["product"]) && isset($_POST["description"]) && isset($_POST["price"])
     && isset($_FILES["main_image"]) && isset($_POST["add"])) {

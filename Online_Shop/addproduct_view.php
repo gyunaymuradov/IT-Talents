@@ -25,20 +25,28 @@
         <main class="float-left">
             <div class="catalog">
                 <div class="product-container">
-                    <form action="" enctype="multipart/form-data" method="post">
-                        <label for="product-name" class="product-label">Product</label><br>
-                        <input type="text" id="product-name" name="product" class="product-input input-border" required placeholder="Name"><br>
-                        <label for="description" class="product-label">Description</label><br>
-                        <textarea name="description" id="description" cols="30" rows="6" class="product-input"  required placeholder="More info for the product"></textarea><br>
-                        <label for="price" class="product-label">Price</label><br>
-                        <input type="number" name="price" id="price" class="product-input input-border" required placeholder="Price in USD"><br>
-                        <label for="main_image" class="product-label">Main image</label><br>
-                        <input type="file" name="main_image" id="main_image" class="product-input" required><br>
-                        <label for="additional_images" class="product-label">Additional images</label><br>
-                        <input type="file" name="additional_images[]" id="additional_images" class="product-input" multiple>
+                <?php
+                if (!$logged) {
+                    echo "<h3 class='error'>$errorMessage</h3>";
+                } else {
+                    echo "
+                
+                    <form action=\"\" enctype=\"multipart/form-data\" method=\"post\">
+                        <label for=\"product-name\" class=\"product-label\">Product</label><br>
+                        <input type=\"text\" id=\"product-name\" name=\"product\" class=\"product-input input-border\" required placeholder=\"Name\"><br>
+                        <label for=\"description\" class=\"product-label\">Description</label><br>
+                        <textarea name=\"description\" id=\"description\" cols=\"30\" rows=\"6\" class=\"product-input\"  required placeholder=\"More info for the product\"></textarea><br>
+                        <label for=\"price\" class=\"product-label\">Price</label><br>
+                        <input type=\"number\" name=\"price\" id=\"price\" class=\"product-input input-border\" required placeholder=\"Price in USD\"><br>
+                        <label for=\"main_image\" class=\"product-label\">Main image</label><br>
+                        <input type=\"file\" name=\"main_image\" id=\"main_image\" class=\"product-input\" required><br>
+                        <label for=\"additional_images\" class=\"product-label\">Additional images</label><br>
+                        <input type=\"file\" name=\"additional_images[]\" id=\"additional_images\" class=\"product-input\" multiple>
                         <hr><br>
-                        <input type="submit" name="add" class="search" value="Add Product">
-                    </form>
+                        <input type=\"submit\" name=\"add\" class=\"search\" value=\"Add Product\">
+                    </form>";
+                }
+                ?>
                 </div>
             </div>
         </main>
