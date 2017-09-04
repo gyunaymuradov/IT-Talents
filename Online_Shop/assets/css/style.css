@@ -83,7 +83,14 @@ main>p {
     width: 35%;
     padding: 22px 22px 0 22px;
     margin-bottom: 20px;
-    margin-right: 35px;
+    min-height: 300px;
+    max-height: 300px;
+}
+
+.article-container {
+    width: 93%;
+    margin: 0 auto;
+    display: block;
 }
 
 .image {
@@ -93,8 +100,8 @@ main>p {
 
 .title-price {
     margin-top: 10px;
-    margin-bottom: 10px;
     font-size: 1.1em;
+    font-weight: 600;
 }
 
 .clear {
