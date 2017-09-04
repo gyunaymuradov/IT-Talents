@@ -10,6 +10,7 @@
         $productId = $value["id"];
         $title = $value["title"];
         $price = $value["price"];
+        $image = $value["mainImg"];
 
         if ($productId % 2 == 0) {
             $float = "float-right";
@@ -19,9 +20,11 @@
         echo "<a href=\"?page=product&id=$productId\">
                 <article class=\"article $float\">
                     <div>
-                        <img class=\"image\" src=\"assets/images/square.png\" width=\"280\" height=\"250\">
-                        <p class=\"title-price\">$title</p>
-                        <p class=\"title-price\">$$price</p>
+                    <div class='image'>
+                        <img class=\"image\" src=\"$image\">
+                    </div>
+                    <p class=\"title-price\">$title</p>
+                    <p class=\"title-price\">$$price</p>
                     </div>
                 </article>
               </a>";
