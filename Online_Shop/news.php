@@ -24,6 +24,10 @@ if ($_SESSION["logged"] == true) {
 $commentsFile = file_get_contents("comments.json");
 $commentsArr = json_decode($commentsFile, true);
 
+usort($commentsArr[$newId], function ($a, $b) {
+    return $a["date"] - $b["date"];
+});
+
 if (isset($commentsArr[$newId])) {
     $hasComments = true;
 }
