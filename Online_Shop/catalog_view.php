@@ -4,6 +4,7 @@
             <form action="" method="post" class="float-left">
                 <input id="search-input" name="search" type="text" placeholder="Search..." required>
                 <input class="search" type="submit" name="submit_search" value="Search">
+                <a href="addproduct.php" id="add-product">Add product</a>
             </form>
             <form action="" method="post" id="order" class="float-right">
                 <select name="order_by" id="" class="float-right search">
