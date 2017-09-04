@@ -79,3 +79,7 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 .idea/workspace.xml
+products.json
+contactdb.json
+comments.json
+users.json
