@@ -24,7 +24,7 @@
                         <div class='image'>
                             <img class=\"image\" src=\"$image\">
                         </div>
-                        <p class=\"title-price\">$title</p>
+                        <p class=\"title-price\">$title</p><hr>
                         <p class=\"title-price\">$$price</p>
                         </div>
                     </article>
