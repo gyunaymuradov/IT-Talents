@@ -27,13 +27,14 @@
             $id = $value["id"];
             $title = $value["title"];
             $price = $value["price"];
+            $image = $value["mainImg"];
             $description = substr($value["description"],0, 400) . "...";
             $counter++;
 
             echo "<a  href=\"?page=product&id=$id\">
              <div class=\"catalog border\">
                 <div class=\"sub-container\">
-                    <img class=\"float-left\" src=\"assets/images/square.png\" width=\"150\" height=\"170\">
+                    <img class=\"float-left\" src=\"$image\" width=\"220\" height=\"auto\">
                     <p class=\"float-left product-title\">$title</p>
                     <p class=\"float-right product-title\">$$price</p>
                     <p class=\"clear\">$description</p>
@@ -53,26 +54,29 @@
             // print all products
             $counter = 1;
             foreach ($productsArr as $value) {
-                if ($counter > 3) {
+                if ($counter > 4) {
                     break;
                 }
 
                 $id = $value["id"];
                 $title = $value["title"];
                 $price = $value["price"];
+                $image = $value["mainImg"];
                 $description = substr($value["description"],0, 400) . "...";
                 $counter++;
 
                 echo "<a  href=\"?page=product&id=$id\">
-             <div class=\"catalog border\">
-                <div class=\"sub-container\">
-                    <img class=\"float-left\" src=\"assets/images/square.png\" width=\"150\" height=\"170\">
-                    <p class=\"float-left product-title\">$title</p>
-                    <p class=\"float-right product-title\">$$price</p>
-                    <p class=\"clear\">$description</p>
-                </div>
-             </div>
-         </a>";
+                         <div class=\"catalog border\">
+                            <div class=\"sub-container\">
+                                <img class=\"float-left\" src=\"$image\" width=\"220\" height=\"auto\">
+                                <div>
+                                    <p class=\"title-price-cat\">$title</p>
+                                    <p class=\"title-price-cat\">$$price</p>
+                                </div>
+                                <p class=\"clear\">$description</p>
+                            </div>
+                         </div>
+                      </a>";
             }
         }
     }
