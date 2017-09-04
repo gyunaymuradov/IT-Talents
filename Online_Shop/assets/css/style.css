@@ -71,6 +71,7 @@ main {
     margin-top: 30px;
     margin-left: 100px;
     width: 795px;
+    min-height: 750px!important;
 }
 main>p {
     margin-bottom: 30px;
@@ -83,6 +84,11 @@ main>p {
     padding: 22px 22px 0 22px;
     margin-bottom: 20px;
     margin-right: 35px;
+}
+
+.image {
+    width: 100%;
+    max-height: 300px;
 }
 
 .title-price {
@@ -153,10 +159,6 @@ a:visited, a:link {
     color: rgb(4,134,178)!important;
 }
 
-.border {
-    border: solid black 1px;
-}
-
 #product {
     margin-left: 20px;
     margin-top: 20px;
@@ -223,7 +225,7 @@ div .product-description p {
     border-radius: 5px;
 }
 
-.border input   {
+ input   {
     background: white;
     width: 50px;
     height: 20px;
@@ -294,6 +296,7 @@ fieldset {
 input#commentator_name {
     width: 500px;
     border: solid black 1px;
+    border-radius: 7px;
 }
 
 textarea#comment {
@@ -453,4 +456,61 @@ select.search {
 main.product {
     border: solid rgb(4,134,178) 2px!important;
     border-radius: 15px;
+}
+
+#add-product {
+    border-radius: 5px;
+    border: solid rgb(4,134,178) 2px;
+    font-size: 0.8em;
+    background-color: lightgray!important;
+    padding: 1px 15px;
+}
+
+.product-container {
+    width: 95%;
+    height: 95%;
+    margin: 18px auto;
+    text-align: center;
+}
+
+.product-container textarea {
+    max-width: 600px;
+}
+
+.product-label {
+    display: inline-block;
+    margin-bottom: 2px;
+}
+
+.product-input {
+    margin-bottom:15px;
+}
+
+.input-border {
+    box-sizing: border-box;
+    padding: 6px;
+    width: 190px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    border: solid rgb(4,134,178) 2px;
+}
+
+textarea.product-input {
+    box-sizing: border-box;
+    padding: 6px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    border: solid rgb(4,134,178) 2px;
+}
+
+#main_image, #additional_images {
+    border: none!important;
+    width: auto;
+}
+
+hr {
+    height: 2px;
+    background: rgb(4,134,178);
+    border: 0;
 }
