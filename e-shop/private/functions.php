@@ -1,10 +1,14 @@
 <?php
 
-function is_post_request() {
+function isPostRequest() {
     return $_SERVER['REQUEST_METHOD'] == 'POST';
 
 }
 
-function html_escape($string) {
+function htmlEscape($string) {
     return htmlspecialchars($string);
+}
+
+function redirectTo($location) {
+    header('Location: ' . $location);
 }

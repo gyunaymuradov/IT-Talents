@@ -3,7 +3,7 @@
 
 
 <?php
-    $products_set = find_all_products();
+    $productsSet = findAllProducts();
 
 ?>
     <img src="" alt="">
@@ -22,7 +22,7 @@
                 <th>&nbsp;</th>
             </tr>
 
-            <?php while($product = mysqli_fetch_assoc($products_set)) {
+            <?php while($product = mysqli_fetch_assoc($productsSet)) {
                 $img_src = $product['image'] ?>
 
                 <tr>
