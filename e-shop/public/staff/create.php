@@ -30,7 +30,7 @@
 ?>
 
 
-<div>
+<div class="container">
     <h1>Add Product</h1>
 
     <p><a class="back-link" href="products.php">&laquo; Back</a></p>
