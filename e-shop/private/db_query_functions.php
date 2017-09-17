@@ -30,3 +30,15 @@ function insertProduct($product) {
         exit();
     }
 }
+
+function findProductById($id) {
+    global $db;
+
+    $sql = "SELECT * FROM products ";
+    $sql .= "WHERE id='" . dbEscape($db, $id) . "'";
+    $result = mysqli_query($db, $sql);
+
+    confirmResultSet($result);
+    $product = mysqli_fetch_assoc($result);
+    return $product;
+}
