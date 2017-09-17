@@ -1,3 +1,6 @@
+<?php require_once '../../private/initialize.php'?>
+
+
 <?php
 /**
  * Created by PhpStorm.

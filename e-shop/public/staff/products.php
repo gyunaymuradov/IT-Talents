@@ -1,12 +1,9 @@
+<?php require_once '../../private/initialize.php'?>
 <?php require_once '../../private/shared/staff_header.php'; ?>
 
+
 <?php
-    $products = [
-        ['id' => '1', 'image' => '../../private/images/IMG_1692.JPG', 'title' => 'asdasd1', 'price' => '123'],
-        ['id' => '2', 'image' => '../../private/images/IMG_1693.JPG', 'title' => '1asdasdasd', 'price' => '123'],
-        ['id' => '3', 'image' => '../../private/images/IMG_1694.JPG', 'title' => '1asdasdas', 'price' => '123'],
-        ['id' => '4', 'image' => '../../private/images/IMG_1695.JPG', 'title' => '1asdasd', 'price' => '123'],
-    ];
+    $products_set = find_all_products();
 
 ?>
     <img src="" alt="">
@@ -25,7 +22,7 @@
                 <th>&nbsp;</th>
             </tr>
 
-            <?php foreach($products as $product) {
+            <?php while($product = mysqli_fetch_assoc($products_set)) {
                 $img_src = $product['image'] ?>
 
                 <tr>

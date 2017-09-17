@@ -1,3 +1,4 @@
+<?php require_once '../../private/initialize.php'?>
 <?php require_once '../../private/shared/staff_header.php'; ?>
 
     <fieldset>
