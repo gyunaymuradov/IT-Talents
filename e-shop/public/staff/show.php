@@ -1,8 +1,13 @@
-<?php require_once '../../private/initialize.php'?>
-
 <?php
+
+    require_once '../../private/initialize.php';
+
     $id = $_GET['id'] ?? '1';
     $product = findProductById($id);
+
+    if (!$product) {
+        redirectTo('products.php');
+    } 
 
 ?>
 
