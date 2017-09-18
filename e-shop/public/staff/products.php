@@ -23,16 +23,16 @@
             </tr>
 
             <?php while($product = mysqli_fetch_assoc($productsSet)) {
-                $img_src = $product['image'] ?>
+                $img_src = htmlEscape($product['image']); ?>
 
                 <tr>
-                    <td><?php echo $product['id']; ?></td>
+                    <td><?php echo htmlEscape($product['id']); ?></td>
                     <td><?php echo "<img src='$img_src'>"; ?></td>
-                    <td><?php echo $product['title']; ?></td>
-                    <td><?php echo $product['price']; ?></td>
-                    <td><a class="action" href="<?php echo 'show.php?id=' . $product['id']; ?>">View</a></td>
-                    <td><a class="action" href="<?php echo 'edit.php?id=' . $product['id']; ?>">Edit</a></td>
-                    <td><a class="action" href="<?php echo 'delete.php?id=' . $product['id']; ?>">Delete</a></td>
+                    <td><?php echo htmlEscape($product['title']); ?></td>
+                    <td><?php echo htmlEscape($product['price']); ?></td>
+                    <td><a class="action" href="<?php echo 'show.php?id=' . htmlEscape($product['id']); ?>">View</a></td>
+                    <td><a class="action" href="<?php echo 'edit.php?id=' . htmlEscape($product['id']); ?>">Edit</a></td>
+                    <td><a class="action" href="<?php echo 'delete.php?id=' . htmlEscape($product['id']); ?>">Delete</a></td>
                 </tr>
 
             <?php } ?>
