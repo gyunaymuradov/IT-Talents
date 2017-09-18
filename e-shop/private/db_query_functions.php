@@ -63,3 +63,20 @@ function updateProduct($product) {
         exit;
     }
 }
+
+function deleteProduct($id) {
+    global $db;
+
+    $sql = "DELETE FROM products ";
+    $sql .= "WHERE id='" . dbEscape($db, $id) . "' ";
+    $sql .= "LIMIT 1";
+
+    $result = mysqli_query($db, $sql);
+    if ($result) {
+        return true;
+    } else {
+        echo mysqli_error($db);
+        dbDisconnect($db);
+        exit();
+    }
+}
