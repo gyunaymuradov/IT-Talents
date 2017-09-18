@@ -1,10 +1,15 @@
 <?php require_once '../../private/initialize.php';
 
 if (!isset($_GET['id']) || $_GET['id'] == '') {
-    redirectTo('index.php');
+    redirectTo('products.php');
 }
 
 $id = $_GET['id'];
+
+$existingProduct = findProductById($id);
+if (!$existingProduct) {
+    redirectTo('products.php');
+}
 
 if (isPostRequest()) {
     $product = [];
@@ -14,7 +19,6 @@ if (isPostRequest()) {
     $product['description'] = $_POST['description'] ?? '';
 
     if (!isset($_FILES['image']) || $_FILES['image']['size'] <= 0) {
-        $existingProduct = findProductById($id);
         $product['image'] = $existingProduct['image'];
     } else {
         $imageTmpName = $_FILES['image']['tmp_name'];
