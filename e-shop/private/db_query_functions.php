@@ -80,3 +80,25 @@ function deleteProduct($id) {
         exit();
     }
 }
+
+function findAllAdmins() {
+    global $db;
+
+    $sql = "SELECT * FROM admins ";
+    $sql .= "ORDER BY id ASC";
+    $result = mysqli_query($db, $sql);
+    confirmResultSet($result);
+    return $result;
+}
+
+function findAdminById($id) {
+    global $db;
+
+    $sql = "SELECT * FROM admins ";
+    $sql .= "WHERE id='" . dbEscape($db, $id) . "'";
+    $result = mysqli_query($db, $sql);
+
+    confirmResultSet($result);
+    $admin = mysqli_fetch_assoc($result);
+    return $admin;
+}
