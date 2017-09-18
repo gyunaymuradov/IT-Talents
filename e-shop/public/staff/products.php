@@ -2,12 +2,10 @@
 <?php require_once '../../private/shared/staff_header.php'; ?>
 
 
-<?php
-    $productsSet = findAllProducts();
+<?php $productsSet = findAllProducts(); ?>
 
-?>
-    <img src="" alt="">
 <div>
+    <br>
     <h4><a href="../../public/staff/index.php">Menu</a></h4>
     <div id="create"><a href="create.php">Add new product</a></div>
     <div>
@@ -29,7 +27,7 @@
                     <td><?php echo htmlEscape($product['id']); ?></td>
                     <td><?php echo "<img src='$img_src'>"; ?></td>
                     <td><?php echo htmlEscape($product['title']); ?></td>
-                    <td><?php echo htmlEscape($product['price']); ?></td>
+                    <td><?php echo "$ " . htmlEscape($product['price']); ?></td>
                     <td><a class="action" href="<?php echo 'show.php?id=' . htmlEscape($product['id']); ?>">View</a></td>
                     <td><a class="action" href="<?php echo 'edit.php?id=' . htmlEscape($product['id']); ?>">Edit</a></td>
                     <td><a class="action" href="<?php echo 'delete.php?id=' . htmlEscape($product['id']); ?>">Delete</a></td>
@@ -40,16 +38,5 @@
         </table>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 <?php require_once '../../private/shared/staff_footer.php'; ?>

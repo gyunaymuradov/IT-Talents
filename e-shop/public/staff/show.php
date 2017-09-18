@@ -7,7 +7,7 @@
 
     if (!$product) {
         redirectTo('products.php');
-    } 
+    }
 
 ?>
 
@@ -23,13 +23,14 @@
     </ul>
 
     <div class="product">
-
-        <h1>Product: <?php echo htmlEscape($product['title']); ?></h1>
-
         <div class="attributes">
             <dl>
+                <dt>Product: </dt>
+                <dd><?php echo "$ " . htmlEscape($product['title']); ?></dd>
+            </dl>
+            <dl>
                 <dt>Price: </dt>
-                <dd><?php echo htmlEscape($product['price']); ?></dd>
+                <dd><?php echo "$ " . htmlEscape($product['price']); ?></dd>
             </dl>
             <dl>
                 <dt>Description: </dt>

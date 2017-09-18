@@ -5,7 +5,7 @@
         <legend>Menu</legend>
             <a href="products.php">Products</a><br>
             <a href="news.php">News</a><br>
-            <a href="admins.php">Admins</a><br>
+            <a href="../admins/">Admins</a><br>
     </fieldset>
 
 
