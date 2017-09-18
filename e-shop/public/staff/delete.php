@@ -16,9 +16,9 @@ if (isPostRequest()) {
 
 } else {
     $product = findProductById($id);
-//    if (!$product) {
-//        redirectTo('products.php');
-//    }
+    if (!$product) {
+        redirectTo('products.php');
+    }
 }
 
 ?>
