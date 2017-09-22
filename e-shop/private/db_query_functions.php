@@ -2,103 +2,62 @@
 function findAllProducts() {
     global $db;
 
-    $sql = "SELECT * FROM products ";
-    $sql .= "ORDER BY id ASC";
-    $result = mysqli_query($db, $sql);
-    confirmResultSet($result);
-    return $result;
+    $statement = $db->prepare("SELECT id, image, title, price  FROM products ORDER BY id ASC");
+    $statement->execute();
+    return $statement;
 }
 
 function insertProduct($product) {
     global $db;
 
-    $sql = "INSERT INTO products ";
-    $sql .= "(title, price, description, image) ";
-    $sql .= "VALUES (";
-    $sql .= "'" . dbEscape($db, $product['title']) . "',";
-    $sql .= "'" . dbEscape($db, $product['price']) . "',";
-    $sql .= "'" . dbEscape($db, $product['description']) . "',";
-    $sql .= "'" . dbEscape($db, $product['image']) . "'";
-    $sql .= ")";
-
-    $result = mysqli_query($db, $sql);
-    if ($result) {
-        return true;
-    } else {
-        echo mysqli_error($db);
-        dbDisconnect($db);
-        exit();
-    }
+    $statement = $db->prepare("INSERT INTO products (title, price, description, image)
+                                          VALUES (:title, :price, :description, :image)");
+    $statement->execute($product);
+    $id = $db->lastInsertId();
+    $result = ['lastInsertId' => $id, 'affectedRows' => $statement];
+    return $result;
 }
 
 function findProductById($id) {
     global $db;
 
-    $sql = "SELECT * FROM products ";
-    $sql .= "WHERE id='" . dbEscape($db, $id) . "'";
-    $result = mysqli_query($db, $sql);
-
-    confirmResultSet($result);
-    $product = mysqli_fetch_assoc($result);
+    $statement = $db->prepare("SELECT id, image, title, price, description FROM products WHERE id = :id");
+    $statement->execute(array("id" => $id));
+    $product = $statement->fetch(PDO::FETCH_ASSOC);
     return $product;
 }
 
 function updateProduct($product) {
     global $db;
 
-    $sql = "UPDATE products SET ";
-    $sql .= "title='" . dbEscape($db, $product['title']) . "', ";
-    $sql .= "price='" . dbEscape($db, $product['price']) . "', ";
-    $sql .= "description='" . dbEscape($db, $product['description']) . "', ";
-    $sql .= "image='" . dbEscape($db, $product['image']) . "' ";
-    $sql .= "WHERE id='" . dbEscape($db, $product['id']) . "' ";
-    $sql .= "LIMIT 1";
-
-    $result = mysqli_query($db, $sql);
-    if($result) {
-        return true;
-    } else {
-        echo mysqli_error($db);
-        dbDisconnect($db);
-        exit;
-    }
+    $statement = $db->prepare("UPDATE products SET title = :title, price = :price, description = :description, image = :image WHERE id = :id LIMIT 1");
+    $statement->execute($product);
+    $id = $db->lastInsertId();
+    $result = ['lastInsertId' => $id, 'affectedRows' => $statement];
+    return $result;
 }
 
 function deleteProduct($id) {
     global $db;
 
-    $sql = "DELETE FROM products ";
-    $sql .= "WHERE id='" . dbEscape($db, $id) . "' ";
-    $sql .= "LIMIT 1";
-
-    $result = mysqli_query($db, $sql);
-    if ($result) {
-        return true;
-    } else {
-        echo mysqli_error($db);
-        dbDisconnect($db);
-        exit();
-    }
+    $statement = $db->prepare("DELETE FROM products WHERE id = :id LIMIT 1");
+    $statement->execute(array("id" => $id));
+    return $statement;
 }
 
 function findAllAdmins() {
     global $db;
 
-    $sql = "SELECT * FROM admins ";
-    $sql .= "ORDER BY id ASC";
-    $result = mysqli_query($db, $sql);
-    confirmResultSet($result);
-    return $result;
+    $statement = $db->prepare("SELECT id, first_name, last_name, username, email FROM admins ORDER BY first_name ASC");
+    $statement->execute();
+    return $statement;
 }
 
 function findAdminById($id) {
     global $db;
 
-    $sql = "SELECT * FROM admins ";
-    $sql .= "WHERE id='" . dbEscape($db, $id) . "'";
-    $result = mysqli_query($db, $sql);
-
-    confirmResultSet($result);
-    $admin = mysqli_fetch_assoc($result);
+    $statement = $db->prepare("SELECT first_name, last_name, username, email FROM admins WHERE id = :id");
+    $statement->execute(array("id" => $id));
+    $admin = $statement->fetch(PDO::FETCH_ASSOC);
     return $admin;
 }

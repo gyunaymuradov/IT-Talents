@@ -35,9 +35,9 @@ if (isPostRequest()) {
     }
 
     $result = updateProduct($product);
-
-    if ($result === true) {
-        redirectTo('/e-shop/public/staff/show.php?id=' . $id);
+    if ($result['affectedRows'] == 1) {
+        $newId = $result['lastInsertId'];
+        redirectTo('/e-shop/public/staff/show.php?id=' . $newId);
     }
 }
 

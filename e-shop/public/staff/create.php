@@ -21,8 +21,8 @@
 
             $result = insertProduct($product);
 
-            if ($result == true) {
-                $newId = mysqli_insert_id($db);
+            if ($result['affectedRows'] == 1) {
+                $newId = $result['lastInsertId'];
                 redirectTo('/e-shop/public/staff/show.php?id=' . $newId);
             }
         }

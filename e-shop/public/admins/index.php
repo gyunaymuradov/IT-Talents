@@ -3,7 +3,7 @@
 require_once '../../private/initialize.php';
 require_once '../../private/shared/staff_header.php';
 
-$admins = findAllAdmins();
+$adminsSet = findAllAdmins();
 
 ?>
 
@@ -24,16 +24,16 @@ $admins = findAllAdmins();
             <th>&nbsp;</th>
         </tr>
 
-        <?php while($adminsSet = mysqli_fetch_assoc($admins)) { ?>
+        <?php while($admin = $adminsSet->fetch(PDO::FETCH_ASSOC)) { ?>
             <tr>
-                <td><?php echo htmlEscape($adminsSet['id']); ?></td>
-                <td><?php echo htmlEscape($adminsSet['first_name']); ?></td>
-                <td><?php echo htmlEscape($adminsSet['last_name']); ?></td>
-                <td><?php echo htmlEscape($adminsSet['username']); ?></td>
-                <td><?php echo htmlEscape($adminsSet['email']); ?></td>
-                <td><a href="<?php echo 'show.php?id=' . htmlEscape($adminsSet['id']); ?>">View</a></td>
-                <td><a href="<?php echo 'edit.php?id=' . htmlEscape($adminsSet['id']); ?>">Edit</a></td>
-                <td><a href="<?php echo 'delete.php?id=' . htmlEscape($adminsSet['id']); ?>">Delete</a></td>
+                <td><?php echo htmlEscape($admin['id']); ?></td>
+                <td><?php echo htmlEscape($admin['first_name']); ?></td>
+                <td><?php echo htmlEscape($admin['last_name']); ?></td>
+                <td><?php echo htmlEscape($admin['username']); ?></td>
+                <td><?php echo htmlEscape($admin['email']); ?></td>
+                <td><a href="<?php echo 'show.php?id=' . htmlEscape($admin['id']); ?>">View</a></td>
+                <td><a href="<?php echo 'edit.php?id=' . htmlEscape($admin['id']); ?>">Edit</a></td>
+                <td><a href="<?php echo 'delete.php?id=' . htmlEscape($admin['id']); ?>">Delete</a></td>
             </tr>
         <?php } ?>
 

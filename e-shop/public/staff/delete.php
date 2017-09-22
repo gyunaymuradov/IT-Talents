@@ -12,7 +12,9 @@ $product = '';
 if (isPostRequest()) {
 
     $result = deleteProduct($id);
-    redirectTo('products.php');
+    if ($result == 1){
+        redirectTo('products.php');
+    }
 
 } else {
     $product = findProductById($id);

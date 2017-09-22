@@ -20,7 +20,7 @@
                 <th>&nbsp;</th>
             </tr>
 
-            <?php while($product = mysqli_fetch_assoc($productsSet)) {
+            <?php while($product = $productsSet->fetch(PDO::FETCH_ASSOC)) {
                 $img_src = htmlEscape($product['image']); ?>
 
                 <tr>

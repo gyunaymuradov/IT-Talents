@@ -26,7 +26,7 @@
         <div class="attributes">
             <dl>
                 <dt>Product: </dt>
-                <dd><?php echo "$ " . htmlEscape($product['title']); ?></dd>
+                <dd><?php echo htmlEscape($product['title']); ?></dd>
             </dl>
             <dl>
                 <dt>Price: </dt>
