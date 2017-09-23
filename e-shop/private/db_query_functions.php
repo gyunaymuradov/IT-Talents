@@ -89,3 +89,12 @@ function deleteAdmin($id) {
     $statement->execute(array("id" => $id));
     return $statement;
 }
+
+function findAdminByUsername($username) {
+    global $db;
+
+    $statement = $db->prepare("SELECT id, username, password FROM admins WHERE username = :username");
+    $statement->execute(array("username" => $username));
+    $admin = $statement->fetch(PDO::FETCH_ASSOC);
+    return $admin;
+}
