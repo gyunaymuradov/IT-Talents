@@ -1,7 +1,6 @@
 <?php
 
 require_once '../../private/initialize.php';
-require_once '../../private/shared/staff_header.php';
 
 if (!isset($_GET['id']) || $_GET['id'] == '') {
     redirectTo('products.php');
@@ -9,6 +8,7 @@ if (!isset($_GET['id']) || $_GET['id'] == '') {
 
 $id = $_GET['id'];
 $product = '';
+
 if (isPostRequest()) {
 
     $result = deleteProduct($id);
@@ -23,6 +23,10 @@ if (isPostRequest()) {
     }
 }
 
+$pageTitle = "Delete Product";
+
+require_once '../../private/shared/staff_header.php';
+
 ?>
 
 <div class="container">
@@ -34,7 +38,7 @@ if (isPostRequest()) {
         <p>Are you sure you want to delete this product?</p>
         <p ><?php echo htmlEscape($product['title']); ?></p>
 
-        <form action="<?php echo "delete.php?id=" . htmlEscape($product['id']); ?>" method="post">
+        <form action="<?php echo "delete.php?id=" . $id; ?>" method="post">
             <div>
                 <input type="submit" name="commit" value="Delete Product" />
             </div>

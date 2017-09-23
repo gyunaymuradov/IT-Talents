@@ -2,7 +2,7 @@
 
 <html lang="en">
     <head>
-        <title>E-SHOP Staff Area</title>
+        <title><?php echo $pageTitle; ?></title>
         <meta charset="utf-8">
         <link rel="stylesheet" media="all" href="../../public/stylesheets/staff_stylesheet.css" type="text/css" />
     </head>

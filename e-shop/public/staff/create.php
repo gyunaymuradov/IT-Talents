@@ -1,32 +1,37 @@
-<?php require_once '../../private/initialize.php'?>
-<?php require_once '../../private/shared/staff_header.php'; ?>
-
 <?php
-    if (isPostRequest()) {
-        $product = [];
-        $product['title'] = $_POST['title'] ?? '';
-        $product['price'] = $_POST['price'] ?? '';
-        $product['description'] = $_POST['description'] ?? '';
-        $imageTmpName = $_FILES['image']['tmp_name'];
 
-        if (is_uploaded_file($imageTmpName)) {
-            $imageRealName = $_FILES['image']['name'];
+require_once '../../private/initialize.php';
 
-            $dir = '../../private/images/';
-            $src = $dir . $imageRealName;
+$pageTitle = "Add Product";
 
-            move_uploaded_file($imageTmpName, $src);
+require_once '../../private/shared/staff_header.php';
 
-            $product['image'] = $src;
+if (isPostRequest()) {
+    $product = [];
+    $product['title'] = $_POST['title'] ?? '';
+    $product['price'] = $_POST['price'] ?? '';
+    $product['description'] = $_POST['description'] ?? '';
+    $imageTmpName = $_FILES['image']['tmp_name'];
 
-            $result = insertProduct($product);
+    if (is_uploaded_file($imageTmpName)) {
+        $imageRealName = $_FILES['image']['name'];
 
-            if ($result['affectedRows'] == 1) {
-                $newId = $result['lastInsertId'];
-                redirectTo('/e-shop/public/staff/show.php?id=' . $newId);
-            }
+        $dir = '../../private/images/';
+        $src = $dir . $imageRealName;
+
+        move_uploaded_file($imageTmpName, $src);
+
+        $product['image'] = $src;
+
+        $result = insertProduct($product);
+
+        if ($result['affectedRows'] == 1) {
+            $newId = $result['lastInsertId'];
+            redirectTo('/e-shop/public/staff/show.php?id=' . $newId);
         }
     }
+}
+
 ?>
 
 

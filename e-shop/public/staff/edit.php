@@ -1,4 +1,6 @@
-<?php require_once '../../private/initialize.php';
+<?php
+
+require_once '../../private/initialize.php';
 
 if (!isset($_GET['id']) || $_GET['id'] == '') {
     redirectTo('products.php');
@@ -41,15 +43,10 @@ if (isPostRequest()) {
     }
 }
 
-$product = findProductById($id)
+$pageTitle = "Edit Product";
+require_once '../../private/shared/staff_header.php';
 
 ?>
-
-
-
-
-
-<?php require_once '../../private/shared/staff_header.php'; ?>
 
 
 <div class="container">
@@ -60,19 +57,19 @@ $product = findProductById($id)
         <dl>
             <dt>Product Title</dt>
             <dd>
-                <input type="text" name="title" value="<?php echo htmlEscape($product['title'])?>" required>
+                <input type="text" name="title" value="<?php echo htmlEscape($existingProduct['title'])?>" required>
             </dd>
         </dl>
         <dl>
             <dt>Price</dt>
             <dd>
-                <input type="number" name="price" value="<?php echo htmlEscape($product['price'])?>" required>
+                <input type="number" name="price" value="<?php echo htmlEscape($existingProduct['price'])?>" required>
             </dd>
         </dl>
         <dl>
             <dt>Description</dt>
             <dd>
-                <textarea name="description" id="" cols="30" rows="10" required><?php echo htmlEscape($product['description'])?></textarea>
+                <textarea name="description" id="" cols="30" rows="10" required><?php echo htmlEscape($existingProduct['description'])?></textarea>
             </dd>
         </dl>
         <dl>

@@ -1,17 +1,17 @@
 <?php
 
-    require_once '../../private/initialize.php';
+require_once '../../private/initialize.php';
 
-    $id = $_GET['id'] ?? '1';
-    $product = findProductById($id);
+$id = $_GET['id'] ?? '1';
+$product = findProductById($id);
 
-    if (!$product) {
-        redirectTo('products.php');
-    }
+if (!$product) {
+    redirectTo('products.php');
+}
+$pageTitle = "Show Product";
+require_once '../../private/shared/staff_header.php';
 
 ?>
-
-<?php require_once '../../private/shared/staff_header.php'; ?>
 
 <div class="container">
     <br>
