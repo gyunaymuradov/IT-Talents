@@ -15,7 +15,7 @@
 
     <div class="btn-container">
         <span>Admin: <?php echo $_SESSION['username']; ?></span>&nbsp;&nbsp;&nbsp;
-        <span><a href="../../public/staff/logout.php">Logout</a></span>
+        <span><a href="<?php echo getUrl('/staff/logout.php'); ?>">Logout</a></span>
     </div>
 
 <?php } ?>
