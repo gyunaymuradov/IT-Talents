@@ -1,18 +1,20 @@
 <?php
 require_once '../../private/initialize.php';
 
+requireLogin();
+
 $pageTitle = "Products";
 
 require_once '../../private/shared/staff_header.php';
 
-    ?>
+?>
 
 
     <fieldset>
         <legend>Menu</legend>
-            <a href="products.php">Products</a><br>
-            <a href="news.php">News</a><br>
-            <a href="../admins/">Admins</a><br>
+            <a href="products">Products</a>
+            <a href="news/">News</a>
+            <a href="admins">Admins</a>
     </fieldset>
 
 
