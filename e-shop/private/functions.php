@@ -30,12 +30,7 @@ function logInAdmin($admin) {
     return true;
 }
 
-function isBlank($value) {
-    if (!isset($value) || trim($value) === '') {
-        return true;
-    }
-    return false;
-}
+
 
 function displayErrors($errors) {
     if (!empty($errors)) {
@@ -51,4 +46,9 @@ function requireLogin() {
     if (!isset($_SESSION['adminId'])) {
         redirectTo(getUrl('/staff/login.php'));
     }
+}
+
+function logoutAdmin() {
+    unset($_SESSION['adminId']);
+    unset($_SESSION['username']);
 }
