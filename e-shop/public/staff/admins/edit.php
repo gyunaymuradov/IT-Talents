@@ -4,17 +4,17 @@ require_once '../../../private/initialize.php';
 
 requireLogin();
 
-if (!isset($_GET['id']) || $_GET['id'] == '') {
-    redirectTo('index.php');
-}
-
 $id = $_GET['id'];
+
+//if (!isset($_GET['id']) || $_GET['id'] == '') {
+//    redirectTo('index.php');
+//}
 
 $existingAdmin = findAdminById($id);
 
-if (!$existingAdmin) {
-    redirectTo('index.php');
-}
+//if (!$existingAdmin) {
+//    redirectTo('index.php');
+//}
 
 if (isPostRequest()) {
     $admin = [];
@@ -27,10 +27,9 @@ if (isPostRequest()) {
 //    $admin['confirmPassword'] = $_POST['confirmPassword'] ?? '';
 
     $result = updateAdmin($admin);
-
-    if ($result['affectedRows'] == 1) {
-        $newId = $result['lastInsertId'];
-        redirectTo('/e-shop/public/admins/show.php?id=' . $newId);
+    if ($result['success'] === true) {
+        $newId = $result['updatedId'];
+        redirectTo(getUrl('/staff/admins/show.php?id=' . $newId));
     }
 }
 
@@ -44,7 +43,7 @@ require_once '../../../private/shared/staff_header.php';
     <h1>Edit Admin</h1>
 
     <p><a class="back-link" href="index.php">&laquo; Back</a></p>
-    <form action="create.php" method="post">
+    <form action="<?php echo "edit.php?id=" . $id; ?>" method="post">
         <dl>
             <dt>First name</dt>
             <dd>
