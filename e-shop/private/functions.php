@@ -12,3 +12,43 @@ function htmlEscape($string) {
 function redirectTo($location) {
     header('Location: ' . $location);
 }
+
+function getUrl($scriptPath) {
+    // add the leading '/' if not present
+    if($scriptPath[0] != '/') {
+        $scriptPath = "/" . $scriptPath;
+    }
+    return WWW_ROOT . $scriptPath;
+}
+
+
+function logInAdmin($admin) {
+    // Regenerating the ID protects the admin from session fixation.
+    session_regenerate_id();
+    $_SESSION['adminId'] = $admin['id'];
+    $_SESSION['username'] = $admin['username'];
+    return true;
+}
+
+function isBlank($value) {
+    if (!isset($value) || trim($value) === '') {
+        return true;
+    }
+    return false;
+}
+
+function displayErrors($errors) {
+    if (!empty($errors)) {
+        echo "<div class=\"errors\"><ul>";
+        foreach ($errors as $error) {
+            echo "<li>$error</li>";
+        }
+        echo "</ul></div>";
+    }
+}
+
+function requireLogin() {
+    if (!isset($_SESSION['adminId'])) {
+        redirectTo(getUrl('/staff/login.php'));
+    }
+}
