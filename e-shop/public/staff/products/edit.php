@@ -4,13 +4,14 @@ require_once '../../../private/initialize.php';
 
 requireLogin();
 
+$id = $_GET['id'];
+
 if (!isset($_GET['id']) || $_GET['id'] == '') {
     redirectTo('index.php');
 }
 
-$id = $_GET['id'];
-
 $existingProduct = findProductById($id);
+
 if (!$existingProduct) {
     redirectTo('index.php');
 }
@@ -39,8 +40,8 @@ if (isPostRequest()) {
     }
 
     $result = updateProduct($product);
-    if ($result['affectedRows'] == 1) {
-        $newId = $result['lastInsertId'];
+    if ($result['success'] === true) {
+        $newId = $result['updatedId'];
         redirectTo(getUrl('/staff/products/show.php?id=' . $newId));
     }
 }
