@@ -6,15 +6,15 @@ requireLogin();
 
 $id = $_GET['id'];
 
-//if (!isset($_GET['id']) || $_GET['id'] == '') {
-//    redirectTo('index.php');
-//}
+if (!isset($_GET['id']) || $_GET['id'] == '') {
+    redirectTo('index.php');
+}
 
 $existingAdmin = findAdminById($id);
 
-//if (!$existingAdmin) {
-//    redirectTo('index.php');
-//}
+if (!$existingAdmin) {
+    redirectTo('index.php');
+}
 
 if (isPostRequest()) {
     $admin = [];
