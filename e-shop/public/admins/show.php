@@ -9,6 +9,7 @@ if (!$admin) {
     redirectTo('index.php');
 }
 
+$pageTitle = "Show Admin";
 require_once '../../private/shared/staff_header.php';
 
 ?>
