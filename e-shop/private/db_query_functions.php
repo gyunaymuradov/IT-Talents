@@ -48,7 +48,7 @@ function deleteProduct($id) {
 function findAllAdmins() {
     global $db;
 
-    $statement = $db->prepare("SELECT id, first_name, last_name, username, email FROM admins ORDER BY first_name ASC");
+    $statement = $db->prepare("SELECT id, first_name, last_name, username, email FROM admins ORDER BY id ASC");
     $statement->execute();
     return $statement;
 }
@@ -60,4 +60,32 @@ function findAdminById($id) {
     $statement->execute(array("id" => $id));
     $admin = $statement->fetch(PDO::FETCH_ASSOC);
     return $admin;
+}
+
+function insertAdmin($admin) {
+    global $db;
+
+    $statement = $db->prepare("INSERT INTO admins (first_name, last_name, username, email, password) VALUES (:firstName, :lastName, :username, :email, :password)");
+    $statement->execute($admin);
+    $id = $db->lastInsertId();
+    $result = ['lastInsertId' => $id, 'affectedRows' => $statement];
+    return $result;
+}
+
+function updateAdmin($admin) {
+    global $db;
+
+    $statement = $db->prepare("U{DATE admins SET first_name = :firstName, last_name = :lastName, username =:username, email = :email, password = :password");
+    $statement->execute($admin);
+    $id = $db->lastInsertId();
+    $result = ['lastInsertId' => $id, 'affectedRows' => $statement];
+    return $result;
+}
+
+function deleteAdmin($id) {
+    global $db;
+
+    $statement = $db->prepare("DELETE FROM admins WHERE id = :id LIMIT 1");
+    $statement->execute(array("id" => $id));
+    return $statement;
 }
