@@ -15,7 +15,10 @@ require_once '../../../private/shared/staff_header.php';
 <div>
     <br>
     <h4><a href="../../../public/staff/index.php">Menu</a></h4>
-    <div id="create"><a href="create.php">Add new admin</a></div>
+    <div id="products-nav">
+        <div id="create"><a href="create.php">Add new admin</a></div>
+        <div id="archived"><a href="archived.php">See previous admins</a></div>
+    </div>
     <div>
     <table class="list">
         <tr>

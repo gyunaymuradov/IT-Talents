@@ -13,6 +13,7 @@ if (isPostRequest()) {
     $admin['password'] = $_POST['password'] ?? '';
     $admin['confirmPassword'] = $_POST['confirmPassword'] ?? '';
     $admin['active'] = 1;
+    $admin['archiveDate'] = null;
 
     $result = insertAdmin($admin);
 
