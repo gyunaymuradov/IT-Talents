@@ -9,6 +9,7 @@ if (isPostRequest()) {
     $product['description'] = $_POST['description'] ?? '';
     $imageTmpName = $_FILES['image']['tmp_name'];
     $product['archived'] = 0;
+    $product['archiveDate'] = null;
 
     if (is_uploaded_file($imageTmpName)) {
         $imageRealName = $_FILES['image']['name'];

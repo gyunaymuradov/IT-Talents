@@ -16,7 +16,10 @@ $productsSet = findAllProducts();
 <div>
     <br>
     <h4><a href="../../../public/staff/index.php">Menu</a></h4>
-    <div id="create"><a href="create.php">Add new product</a></div>
+    <div id="products-nav">
+        <div id="create"><a href="create.php">Add new product</a></div>
+        <div id="archived"><a href="archived.php">See all archived products</a></div>
+    </div>
     <div>
         <table>
             <tr>
