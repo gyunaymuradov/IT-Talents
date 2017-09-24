@@ -47,7 +47,7 @@ function deleteProduct($id) {
 function findAllAdmins() {
     global $db;
 
-    $statement = $db->prepare("SELECT id, first_name, last_name, username, email FROM admins ORDER BY id ASC");
+    $statement = $db->prepare("SELECT id, first_name, last_name, username, email FROM admins WHERE active = 1 ORDER BY id ASC");
     $statement->execute();
     return $statement;
 }
@@ -55,7 +55,7 @@ function findAllAdmins() {
 function findAdminById($id) {
     global $db;
 
-    $statement = $db->prepare("SELECT first_name, last_name, username, email FROM admins WHERE id = :id");
+    $statement = $db->prepare("SELECT first_name, last_name, username, email FROM admins WHERE id = :id AND active = 1");
     $statement->execute(array("id" => $id));
     $admin = $statement->fetch(PDO::FETCH_ASSOC);
     return $admin;
@@ -76,7 +76,7 @@ function updateAdmin($admin) {
 function deleteAdmin($id) {
     global $db;
 
-    $statement = $db->prepare("DELETE FROM admins WHERE id = :id LIMIT 1");
+    $statement = $db->prepare("UPDATE admins SET active = 0 WHERE id = :id LIMIT 1");
     $statement->execute(array("id" => $id));
     return $statement;
 }
@@ -84,7 +84,7 @@ function deleteAdmin($id) {
 function findAdminByUsername($username) {
     global $db;
 
-    $statement = $db->prepare("SELECT id, username, password FROM admins WHERE username = :username");
+    $statement = $db->prepare("SELECT id, username, password FROM admins WHERE username = :username AND active = 1");
     $statement->execute(array("username" => $username));
     $admin = $statement->fetch(PDO::FETCH_ASSOC);
     return $admin;
@@ -189,7 +189,7 @@ function insertAdmin($admin) {
         return $errors;
     }
     unset($admin['confirmPassword']);
-    $statement = $db->prepare("INSERT INTO admins (first_name, last_name, username, email, password) VALUES (:firstName, :lastName, :username, :email, :password)");
+    $statement = $db->prepare("INSERT INTO admins (first_name, last_name, username, email, password, active) VALUES (:firstName, :lastName, :username, :email, :password, :active)");
     $statement->execute($admin);
     $id = $db->lastInsertId();
     $result = ['lastInsertId' => $id, 'affectedRows' => $statement];
