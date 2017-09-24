@@ -3,7 +3,7 @@
 function findAllProducts() {
     global $db;
 
-    $statement = $db->prepare("SELECT id, image, title, price  FROM products ORDER BY id ASC");
+    $statement = $db->prepare("SELECT id, image, title, price  FROM products WHERE archived = 0 ORDER BY id ASC");
     $statement->execute();
     return $statement;
 }
@@ -11,8 +11,7 @@ function findAllProducts() {
 function insertProduct($product) {
     global $db;
 
-    $statement = $db->prepare("INSERT INTO products (title, price, description, image)
-                                          VALUES (:title, :price, :description, :image)");
+    $statement = $db->prepare("INSERT INTO products (title, price, description, image, archived) VALUES (:title, :price, :description, :image, :archived)");
     $statement->execute($product);
     $id = $db->lastInsertId();
     $result = ['lastInsertId' => $id, 'affectedRows' => $statement];
@@ -22,7 +21,7 @@ function insertProduct($product) {
 function findProductById($id) {
     global $db;
 
-    $statement = $db->prepare("SELECT id, image, title, price, description FROM products WHERE id = :id");
+    $statement = $db->prepare("SELECT id, image, title, price, description FROM products WHERE id = :id AND archived = 0");
     $statement->execute(array("id" => $id));
     $product = $statement->fetch(PDO::FETCH_ASSOC);
     return $product;
@@ -31,7 +30,7 @@ function findProductById($id) {
 function updateProduct($product) {
     global $db;
 
-    $statement = $db->prepare("UPDATE products SET title = :title, price = :price, description = :description, image = :image WHERE id = :id LIMIT 1");
+    $statement = $db->prepare("UPDATE products SET title = :title, price = :price, description = :description, image = :image WHERE id = :id AND archived = 0 LIMIT 1");
     $statement->execute($product);
     $result = ['updatedId' => $product['id'], 'success' => true];
     return $result;
@@ -40,7 +39,7 @@ function updateProduct($product) {
 function deleteProduct($id) {
     global $db;
 
-    $statement = $db->prepare("DELETE FROM products WHERE id = :id LIMIT 1");
+    $statement = $db->prepare("UPDATE products SET archived = 1 WHERE id = :id LIMIT 1");
     $statement->execute(array("id" => $id));
     return $statement;
 }
