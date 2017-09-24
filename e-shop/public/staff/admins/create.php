@@ -12,6 +12,7 @@ if (isPostRequest()) {
     $admin['email'] = $_POST['email'] ?? '';
     $admin['password'] = $_POST['password'] ?? '';
     $admin['confirmPassword'] = $_POST['confirmPassword'] ?? '';
+    $admin['active'] = 1;
 
     $result = insertAdmin($admin);
 
@@ -19,8 +20,12 @@ if (isPostRequest()) {
         $newId = $result['lastInsertId'];
         redirectTo('/e-shop/public/staff/admins/show.php?id=' . $newId);
     }
+} else {
+    $admin['firstName'] = '';
+    $admin['lastName'] = '';
+    $admin['username'] = '';
+    $admin['email'] = '';
 }
-
 $pageTitle = "Add Admin";
 require_once '../../../private/shared/staff_header.php';
 
@@ -36,25 +41,25 @@ require_once '../../../private/shared/staff_header.php';
         <dl>
             <dt>First name</dt>
             <dd>
-                <input type="text" name="firstName" value="" >
+                <input type="text" name="firstName" value="<?php echo htmlEscape($admin['firstName']); ?>" >
             </dd>
         </dl>
         <dl>
             <dt>Last name</dt>
             <dd>
-                <input type="text" name="lastName" value="" >
+                <input type="text" name="lastName" value="<?php echo htmlEscape($admin['lastName']); ?>" >
             </dd>
         </dl>
         <dl>
             <dt>Username</dt>
             <dd>
-                <input type="text" name="username" value="" >
+                <input type="text" name="username" value="<?php echo htmlEscape($admin['username']); ?>" >
             </dd>
         </dl>
         <dl>
             <dt>Email</dt>
             <dd>
-                <input type="text" name="email" value="" >
+                <input type="text" name="email" value="<?php echo htmlEscape($admin['email']); ?>" >
             </dd>
         </dl>
         <dl>
