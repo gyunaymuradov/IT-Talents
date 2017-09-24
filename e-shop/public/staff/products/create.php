@@ -2,10 +2,6 @@
 
 require_once '../../../private/initialize.php';
 
-$pageTitle = "Add Product";
-
-require_once '../../../private/shared/staff_header.php';
-
 if (isPostRequest()) {
     $product = [];
     $product['title'] = $_POST['title'] ?? '';
@@ -32,6 +28,10 @@ if (isPostRequest()) {
         }
     }
 }
+
+$pageTitle = "Add Product";
+
+require_once '../../../private/shared/staff_header.php';
 
 ?>
 
