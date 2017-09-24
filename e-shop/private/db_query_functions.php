@@ -11,7 +11,7 @@ function findAllProducts() {
 function insertProduct($product) {
     global $db;
 
-    $statement = $db->prepare("INSERT INTO products (title, price, description, image, archived) VALUES (:title, :price, :description, :image, :archived)");
+    $statement = $db->prepare("INSERT INTO products (title, price, description, image, archived, archive_date) VALUES (:title, :price, :description, :image, :archived, :archiveDate)");
     $statement->execute($product);
     $id = $db->lastInsertId();
     $result = ['lastInsertId' => $id, 'affectedRows' => $statement];
@@ -32,6 +32,7 @@ function updateProduct($product) {
 
     $statement = $db->prepare("UPDATE products SET title = :title, price = :price, description = :description, image = :image WHERE id = :id AND archived = 0 LIMIT 1");
     $statement->execute($product);
+    // CHECK THE RETURNING RESULT ARRAY AND FIX IT !!!
     $result = ['updatedId' => $product['id'], 'success' => true];
     return $result;
 }
@@ -39,7 +40,7 @@ function updateProduct($product) {
 function deleteProduct($id) {
     global $db;
 
-    $statement = $db->prepare("UPDATE products SET archived = 1 WHERE id = :id LIMIT 1");
+    $statement = $db->prepare("UPDATE products SET archived = 1, archive_date = NOW() WHERE id = :id LIMIT 1");
     $statement->execute(array("id" => $id));
     return $statement;
 }
@@ -194,4 +195,12 @@ function insertAdmin($admin) {
     $id = $db->lastInsertId();
     $result = ['lastInsertId' => $id, 'affectedRows' => $statement];
     return $result;
+}
+
+function findAllArchivedProducts() {
+    global $db;
+
+    $statement = $db->prepare("SELECT id, image, title, price, archive_date FROM products WHERE archived = 1");
+    $statement->execute();
+    return $statement;
 }
