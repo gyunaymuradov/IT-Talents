@@ -77,7 +77,7 @@ function updateAdmin($admin) {
 function deleteAdmin($id) {
     global $db;
 
-    $statement = $db->prepare("UPDATE admins SET active = 0 WHERE id = :id LIMIT 1");
+    $statement = $db->prepare("UPDATE admins SET active = 0, archive_date = NOW() WHERE id = :id LIMIT 1");
     $statement->execute(array("id" => $id));
     return $statement;
 }
@@ -201,6 +201,14 @@ function findAllArchivedProducts() {
     global $db;
 
     $statement = $db->prepare("SELECT id, image, title, price, archive_date FROM products WHERE archived = 1");
+    $statement->execute();
+    return $statement;
+}
+
+function findAllPastAdmins() {
+    global $db;
+
+    $statement = $db->prepare("SELECT id, first_name, last_name, username, email, archive_date FROM admins WHERE active = 0 ORDER BY archive_date DESC");
     $statement->execute();
     return $statement;
 }
