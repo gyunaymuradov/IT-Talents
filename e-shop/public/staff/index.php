@@ -13,7 +13,7 @@ require_once '../../private/shared/staff_header.php';
     <fieldset>
         <legend>Menu</legend>
             <a href="products">Products</a>
-            <a href="news/">News</a>
+            <a href="news">News</a>
             <a href="admins">Admins</a>
     </fieldset>
 
