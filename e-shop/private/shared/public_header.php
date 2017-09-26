@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?php echo getUrl('/stylesheets/public_stylesheet.css'); ?>" type="text/css">
 </head>
 <body>
-    <div id="main-container">
+    <div>
         <header>
              <?php
                  if (!isset($_SESSION["logged"]) || $_SESSION["logged"] == false) {
