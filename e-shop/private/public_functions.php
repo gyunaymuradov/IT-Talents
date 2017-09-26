@@ -9,4 +9,8 @@ $publicEnd = strpos($_SERVER['SCRIPT_NAME'], '/public') + 7;
 $docRoot = substr($_SERVER['SCRIPT_NAME'], 0, $publicEnd);
 define("WWW_ROOT", $docRoot);
 
+require_once 'database.php';
+require_once 'db_query_functions.php';
 require_once 'functions.php';
+
+$db = dbConnect();
