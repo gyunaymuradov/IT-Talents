@@ -212,3 +212,11 @@ function findAllPastAdmins() {
     $statement->execute();
     return $statement;
 }
+
+function getFreshlyAddedProducts() {
+    global $db;
+
+    $statement = $db->prepare("SELECT id, title, image, price FROM products WHERE archived = 0 ORDER BY id DESC LIMIT 4");
+    $statement->execute();
+    return $statement;
+}
