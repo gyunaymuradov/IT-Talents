@@ -83,7 +83,6 @@ require_once '../../../private/shared/staff_header.php';
             <input type="submit" value="Create admin" />
         </div>
     </form>
-
 </div>
 
 <?php require_once '../../../private/shared/staff_footer.php'; ?>
