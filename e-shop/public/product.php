@@ -20,8 +20,8 @@ $id = $product['id'];
                 <div class="center">
                     <h3><?php echo $title; ?></h3><br>
                     <h3>$ <?php echo $price; ?></h3><br>
-                    <button>Add to basket</button>
-                    <a href="?page=catalog"><button>View all products</button></a>
+                    <button class="hvr-grow">Add to basket</button>
+                    <a href="?page=catalog"><button class="hvr-grow">View all products</button></a>
                 </div>
                 <div id="description">
                     <br>

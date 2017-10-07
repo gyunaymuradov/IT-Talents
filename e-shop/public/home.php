@@ -16,7 +16,7 @@
                     $image = substr($products['image'], 6);
                     $id = $products['id'];
 
-                    echo "<div class=\"article-container left\">
+                    echo "<div class=\"article-container left hvr-grow\">
                                 <a href=\"?page=product&id=$id\">
                                     <div class='sub-container'>
                                         <article>
