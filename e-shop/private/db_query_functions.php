@@ -1,5 +1,7 @@
 <?php
 
+require_once 'validation_functions.php';
+
 function findAllProducts() {
     global $db;
 
@@ -91,7 +93,101 @@ function findAdminByUsername($username) {
     return $admin;
 }
 
+function validateContactUsForm($contactUsFormInfo) {
+    $errors = array();
+
+    $firstNameIsBlank = false;
+    if (isBlank($contactUsFormInfo['firstName'])) {
+        $firstNameIsBlank = true;
+        $errors[] = "First name cannot be blank.";
+    }
+
+    // check the first name size
+    if (!$firstNameIsBlank) {
+        if (!hasLengthGreaterThan($contactUsFormInfo['firstName'], 3)) {
+            $errors[] = "First name must be at least 3 characters long.";
+        } else if (!hasLengthLessThan($contactUsFormInfo['firstName'], 15)) {
+            $errors[] = "First name cannot be longer than 15 characters.";
+        }
+    }
+
+    $lastNameIsBlank = false;
+    if(isBlank($contactUsFormInfo['lastName'])) {
+        $lastNameIsBlank = true;
+        $errors[] = "Last name cannot be blank.";
+    }
+
+    // check the last name size
+    if (!$lastNameIsBlank) {
+        if (!hasLengthGreaterThan($contactUsFormInfo['lastName'], 3)) {
+            $errors[] = "Last name must be at least 3 characters long.";
+        } else if (!hasLengthLessThan($contactUsFormInfo['lastName'], 12)) {
+            $errors[] = "Last name cannot be longer than 15 characters.";
+        }
+    }
+
+    $emailIsBlank = false;
+    if(isBlank($contactUsFormInfo['email'])) {
+        $emailIsBlank = true;
+        $errors[] = "Email cannot be blank.";
+    }
+
+    // check the email size
+    if (!$emailIsBlank) {
+        if (!hasLengthGreaterThan($contactUsFormInfo['email'], 5)) {
+            $errors[] = "Email must contain 5 or more characters.";
+        } else if (!hasLengthLessThan($contactUsFormInfo['email'], 25)) {
+            $errors[] = "Email cannot be longer than 25 characters.";
+        }
+    }
+
+    $phoneNumberIsBlank = false;
+    if(isBlank($contactUsFormInfo['phone'])) {
+        $phoneNumberIsBlank = true;
+        $errors[] = "Phone number cannot be blank.";
+    }
+
+    // check the phone number
+    if (!$phoneNumberIsBlank) {
+        if (!preg_match('/^(0)[0-9]{9}$/', $contactUsFormInfo['phone'])) {
+            $errors[]= "The phone number should contain only numbers, start with 0 and have exactly 10 digits length.";
+        }
+    }
+
+    $messageIsBlank = false;
+    if(isBlank($contactUsFormInfo['message'])) {
+        $messageIsBlank = true;
+        $errors[] = "Message field cannot be blank.";
+    }
+
+    // check length of message
+    if (!$messageIsBlank) {
+        if (!hasLengthGreaterThan($contactUsFormInfo['message'], 5)) {
+            $errors[] = "Message must be at least 5 characters long.";
+        }
+    }
+
+    return $errors;
+}
+
+function insertContactUsFormInfo($contactUsFormInfo) {
+    global $db;
+
+    $errors = validateContactUsForm($contactUsFormInfo);
+    if (!empty($errors)) {
+        return $errors;
+    }
+
+    $statement = $db->prepare("INSERT INTO contact_us_table (first_name, last_name, email, phone_number, message) 
+                              VALUES (:firstName, :lastName, :email, :phone, :message)");
+    $statement->execute($contactUsFormInfo);
+    if ($statement == true) {
+        return "success";
+    }
+}
+
 function validateAdmin($admin) {
+    $errors = array();
 
     $firstNameIsBlank = false;
     if(isBlank($admin['firstName'])) {
