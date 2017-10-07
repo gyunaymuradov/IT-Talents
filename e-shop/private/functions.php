@@ -33,7 +33,7 @@ function logInAdmin($admin) {
 
 
 function displayErrors($errors) {
-    if (!empty($errors)) {
+    if (!empty($errors) && is_array($errors)) {
         echo "<div class=\"errors\"><ul>";
         foreach ($errors as $error) {
             echo "<li>$error</li>";
