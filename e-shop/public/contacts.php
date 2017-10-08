@@ -64,7 +64,7 @@ else {
 
                     <label for="message">Your message</label><br>
                     <textarea cols="60" rows="8" name="message"  class="contact" placeholder="message"  required><?php echo htmlEscape($infoFromContactForm['message']); ?></textarea>
-                    <button class="hvr-grow right" name="send">Send</button>
+                    <button class="right" name="send">Send</button>
                 </form>
             </div>
             <div id="iframe" class="right">
