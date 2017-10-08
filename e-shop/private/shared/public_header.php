@@ -23,5 +23,5 @@
                      </form>";
         }
             ?>
-            <div id="logo"><a href=""><img class="" src="<?php echo '../private/images/eshop.png' ?>" alt="store_logo" title="store" width="350" height="auto"></a></div>
+            <div id="logo"><a href="http://localhost/e-shop/public/index.php"><img class="" src="<?php echo '../private/images/eshop.png' ?>" alt="store_logo" title="store" width="350" height="auto"></a></div>
         </header>
