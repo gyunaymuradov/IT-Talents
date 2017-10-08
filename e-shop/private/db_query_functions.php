@@ -326,6 +326,33 @@ function getAllProducts($offset = 0, $limit = 4) {
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function getAllProductsOrderedByPriceAsc($offset = 0, $limit = 4) {
+    global  $db;
+
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $statement = $db->prepare("SELECT id, title, image, price, description FROM products WHERE archived = 0 ORDER BY price ASC LIMIT :limit OFFSET :offset");
+    $statement->execute(array("limit" => $limit, "offset" => $offset));
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getAllProductsOrderedByPriceDesc($offset = 0, $limit = 4) {
+    global  $db;
+
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $statement = $db->prepare("SELECT id, title, image, price, description FROM products WHERE archived = 0 ORDER BY price DESC LIMIT :limit OFFSET :offset");
+    $statement->execute(array("limit" => $limit, "offset" => $offset));
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getAllProductsOrderedByIdAsc($offset = 0, $limit = 4) {
+    global  $db;
+
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $statement = $db->prepare("SELECT id, title, image, price, description FROM products WHERE archived = 0 ORDER BY id ASC LIMIT :limit OFFSET :offset");
+    $statement->execute(array("limit" => $limit, "offset" => $offset));
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
 function getProductsCount() {
     global $db;
 
