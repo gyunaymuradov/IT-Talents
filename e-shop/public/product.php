@@ -2,10 +2,10 @@
 
 $id = $_GET['id'];
 $product = findProductById($id);
-$title = $product['title'];
-$price = $product['price'];
-$description = $product['description'];
-$image = substr($product['image'], 6);
+$title = htmlEscape($product['title']);
+$price = htmlEscape($product['price']);
+$description = htmlEscape($product['description']);
+$image = htmlEscape(substr($product['image'], 6));
 $id = $product['id'];
 
 ?>
@@ -20,8 +20,8 @@ $id = $product['id'];
                 <div class="center">
                     <h3><?php echo $title; ?></h3><br>
                     <h3>$ <?php echo $price; ?></h3><br>
-                    <button class="hvr-grow">Add to basket</button>
-                    <a href="?page=catalog"><button class="hvr-grow">View all products</button></a>
+                    <button>Add to basket</button>
+                    <a href="?page=catalog"><button>View all products</button></a>
                 </div>
                 <div id="description">
                     <br>
