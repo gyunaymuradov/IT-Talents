@@ -361,3 +361,11 @@ function getProductsCount() {
     $count = $statement->fetch(PDO::FETCH_ASSOC);
     return $count;
 }
+
+function searchProductByPartOfTheTitle($part) {
+    global $db;
+
+    $statement = $db->prepare("SELECT id, title, image, price, description FROM products WHERE archived = 0 AND title LIKE ? LIMIT 4");
+    $statement->execute(array("%$part%"));
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
