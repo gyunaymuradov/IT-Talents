@@ -17,7 +17,7 @@ if (isPostRequest()) {
 
     $result = insertAdmin($admin);
 
-    if (array_key_exists('affectedRows', $result)) {
+    if ($result['success']) {
         $newId = $result['lastInsertId'];
         redirectTo('/e-shop/public/staff/admins/show.php?id=' . $newId);
     }
