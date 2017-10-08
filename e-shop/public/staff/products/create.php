@@ -23,7 +23,7 @@ if (isPostRequest()) {
 
         $result = insertProduct($product);
 
-        if ($result['affectedRows'] == 1) {
+        if ($result['success']) {
             $newId = $result['lastInsertId'];
             redirectTo('/e-shop/public/staff/products/show.php?id=' . $newId);
         }
