@@ -44,4 +44,30 @@ function loadProducts(pageNumber = 1, orderType = "newest") {
     request.open("GET", url);
     request.send();
 }
+
+function searchProducts() {
+    var request = new XMLHttpRequest();
+    var searchBarValue = document.getElementById('search').value;
+    var url = 'http://localhost/e-shop/public/searchProducts.php?search=' + searchBarValue;
+    var productsContainer = document.getElementById('products-list');
+    productsContainer.innerHTML = "";
+    request.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            var products = JSON.parse(request.responseText);
+            products.forEach(function (product) {
+                var prodHTML = '<a href=?page=product&id=' + product.id + '>';
+                prodHTML += '<div class="products hvr-grow">';
+                var image = product.image.substr(6);
+                prodHTML += '<image src="' + image + '" width="auto" height="170" class="left">';
+                prodHTML += '<div><h3 class="align-center"><strong>' + product.title + '</strong></h3><br>';
+                prodHTML += '<h3 class="align-center"><strong>$ ' + product.price + '</strong></h3><br>';
+                var description = product.description.substr(0, 195) + '...';
+                prodHTML += '<p>' + description + '</p></div></div></a><br>';
+                productsContainer.innerHTML += prodHTML;
+            });
+        }
+    };
+    request.open("GET", url);
+    request.send();
+}
 loadProducts();
