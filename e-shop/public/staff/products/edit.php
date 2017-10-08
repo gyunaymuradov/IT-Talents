@@ -40,7 +40,7 @@ if (isPostRequest()) {
     }
 
     $result = updateProduct($product);
-    if ($result['success'] === true) {
+    if ($result['success'] == 1) {
         $newId = $result['updatedId'];
         redirectTo(getUrl('/staff/products/show.php?id=' . $newId));
     }
