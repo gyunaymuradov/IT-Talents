@@ -16,41 +16,39 @@ if ($page > $pagesCount) {
 $offset = $page * 4 - 4;
 $products = getAllProducts($offset);
 
-?>
 
+?>
 <main>
     <div class="main-content">
         <div class="content-container">
             <div id="search-order">
                 <input type="text" id="search" placeholder="search for product">&nbsp;&nbsp;
-                Order by: <button id="">Price asc</button>&nbsp;&nbsp;
-                <button>Price desc</button>&nbsp;&nbsp;
-                <button>Name asc</button>
+                Order by:
+                <button onclick="changeOrder(this.value)" value="price_asc">Price asc</button>&nbsp;&nbsp;
+                <button onclick="changeOrder(this.value)" value="price_desc">Price desc</button>&nbsp;&nbsp;
+                <button onclick="changeOrder(this.value)" value="newest">Newest</button>&nbsp;&nbsp;
+                <button onclick="changeOrder(this.value)" value="oldest">Oldest</button>&nbsp;&nbsp;
             </div>
             <br>
-            <?php
-            foreach ($products as $product) {
-                $title = htmlEscape($product['title']);
-                $price = htmlEscape($product['price']);
-                $image = htmlEscape(substr($product['image'], 6));
-                $description = htmlEscape(mb_substr($product['description'], 0, 195) . "...");
-                $id = $product['id'];
-                echo "<a href=\"?page=product&id=$id\">
-                <div class=\"products hvr-grow\">
-                    <image src=\"$image\" width=\"auto\" height=\"170\" class='left'>
-                    <div>
-                        <h3 class=\"align-center\"><strong>$title</strong></h3><br>
-                        <h3 class=\"align-center\"><strong>$ $price</strong></h3><br>
-                        <p>$description</p>
-                    </div>
-                </div>
-            </a><br><br>";
-            }
-                ?>
+            <div id="products-list">
+                <?php
+                foreach ($products as $product) {
+                    $title = htmlEscape($product['title']);
+                    $price = htmlEscape($product['price']);
+                    $image = htmlEscape(substr($product['image'], 6));
+                    $description = htmlEscape(mb_substr($product['description'], 0, 195) . "...");
+                    $id = $product['id'];
+
+                }
+                    ?>
+            </div>
             <div id="pagination">
-                <a href="?page=catalog&pageNumber=<?php echo $page - 1; ?>" class="previous round">&#8249;&#8249; </a>
-                <a href="?page=catalog&pageNumber=<?php echo $page + 1; ?>" class="next round"> &#8250;&#8250;</a>
+                <button onclick="previousPage()" class="previous round">&#8249;&#8249; </button>
+                <button onclick="nextPage()" class="next round"> &#8250;&#8250;</button>
             </div>
         </div>
+        <script src="../private/script.js">
+            loadProducts()
+        </script>
     </div>
 </main>
