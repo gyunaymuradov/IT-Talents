@@ -15,8 +15,8 @@ function insertProduct($product) {
 
     $statement = $db->prepare("INSERT INTO products (title, price, description, image, archived, archive_date) VALUES (:title, :price, :description, :image, :archived, :archiveDate)");
     $statement->execute($product);
-    $id = $db->lastInsertId();
-    $result = ['lastInsertId' => $id, 'affectedRows' => $statement];
+    $result['success'] = $statement;
+    $result['lastInsertId'] = $db->lastInsertId();
     return $result;
 }
 
@@ -34,8 +34,8 @@ function updateProduct($product) {
 
     $statement = $db->prepare("UPDATE products SET title = :title, price = :price, description = :description, image = :image WHERE id = :id AND archived = 0 LIMIT 1");
     $statement->execute($product);
-    // CHECK THE RETURNING RESULT ARRAY AND FIX IT !!!
-    $result = ['updatedId' => $product['id'], 'success' => true];
+    $affectedRows = $statement->rowCount();
+    $result = ['updatedId' => $product['id'], 'success' => $affectedRows];
     return $result;
 }
 
@@ -69,7 +69,7 @@ function updateAdmin($admin) {
 
     $statement = $db->prepare("UPDATE admins SET first_name = :firstName, last_name = :lastName, username = :username, email = :email, password = :password WHERE id = :id LIMIT 1");
     $statement->execute($admin);
-    $result = ['updatedId' => $admin['id'], 'success' => true];
+    $result = ['updatedId' => $admin['id'], 'success' => $statement];
     if ($_SESSION['adminId'] == $admin['id']) {
     $_SESSION['username'] = $admin['username'];
     }
@@ -289,7 +289,7 @@ function insertAdmin($admin) {
     $statement = $db->prepare("INSERT INTO admins (first_name, last_name, username, email, password, active) VALUES (:firstName, :lastName, :username, :email, :password, :active)");
     $statement->execute($admin);
     $id = $db->lastInsertId();
-    $result = ['lastInsertId' => $id, 'affectedRows' => $statement];
+    $result = ['lastInsertId' => $id, 'success' => $statement];
     return $result;
 }
 
@@ -312,7 +312,25 @@ function findAllPastAdmins() {
 function getFreshlyAddedProducts() {
     global $db;
 
-    $statement = $db->prepare("SELECT id, title, image, price FROM products WHERE archived = 0 ORDER BY id DESC LIMIT 4");
+    $statement = $db->prepare("SELECT id, title, image, price, description FROM products WHERE archived = 0 ORDER BY id DESC LIMIT 4");
     $statement->execute();
     return $statement;
+}
+
+function getAllProducts($offset = 0, $limit = 4) {
+    global  $db;
+
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $statement = $db->prepare("SELECT id, title, image, price, description FROM products WHERE archived = 0 ORDER BY id DESC LIMIT :limit OFFSET :offset");
+    $statement->execute(array("limit" => $limit, "offset" => $offset));
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getProductsCount() {
+    global $db;
+
+    $statement = $db->prepare("SELECT COUNT(*) as count FROM products WHERE archived = 0");
+    $statement->execute();
+    $count = $statement->fetch(PDO::FETCH_ASSOC);
+    return $count;
 }
